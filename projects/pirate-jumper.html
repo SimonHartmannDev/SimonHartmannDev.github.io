@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pirate Jumper | Simon Hartmann</title>
+
+    <meta
+        name="description"
+        content="Technical breakdown of Pirate Jumper, an endless runner developed in Unity using C#."
+    >
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- ========================================
+         NAVIGATION
+    ========================================= -->
+    <header class="site-header">
+        <div class="container nav-container">
+
+            <a class="logo" href="../index.html">
+                Simon Hartmann
+            </a>
+
+            <nav class="main-nav">
+                <a href="../index.html#about">About</a>
+                <a href="../index.html#skills">Skills</a>
+                <a href="../index.html#projects">Projects</a>
+                <a href="../index.html#education">Education</a>
+                <a href="../index.html#contact">Contact</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- ========================================
+             PROJECT HEADER
+        ========================================= -->
+        <section class="project-detail-hero">
+
+            <div class="container">
+
+                <a class="back-link" href="../index.html#projects">
+                    ← All Projects
+                </a>
+
+
+                <div class="project-detail-heading">
+
+                    <p class="section-label">
+                        SOLO DEVELOPMENT PROJECT
+                    </p>
+
+                    <h1>Pirate Jumper</h1>
+
+                    <p class="project-detail-intro">
+                        An endless runner developed in Unity during my semester break,
+                        featuring a continuously generated modular world, reusable
+                        gameplay objects and persistent cosmetic progression.
+                    </p>
+
+                </div>
+
+
+                <div class="project-detail-meta">
+
+                    <div>
+                        <span class="info-label">Role</span>
+                        <span class="info-value">Solo Developer</span>
+                    </div>
+
+                    <div>
+                        <span class="info-label">Engine</span>
+                        <span class="info-value">Unity</span>
+                    </div>
+
+                    <div>
+                        <span class="info-label">Language</span>
+                        <span class="info-value">C#</span>
+                    </div>
+
+                    <div>
+                        <span class="info-label">Development</span>
+                        <span class="info-value">March 2025</span>
+                    </div>
+
+                    <div>
+                        <span class="info-label">Release</span>
+                        <span class="info-value">itch.io</span>
+                    </div>
+
+                </div>
+
+
+                <div class="project-detail-links">
+
+                    <a
+                        class="button button-primary"
+                        href="https://serplanetgames.itch.io/pirate-jumper"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Play on itch.io ↗
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             VIDEO
+        ========================================= -->
+        <section class="project-video-section">
+
+            <div class="container">
+
+                <div class="project-video">
+
+                    <video
+                        controls
+                        muted
+                        loop
+                        poster="../images/pirate-jumper/video-cover.png"
+                    >
+                        <source
+                            src="../images/pirate-jumper/gameplay.mkv"
+                            type="video/mkv"
+                        >
+
+                        Your browser does not support HTML video.
+                    </video>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             OVERVIEW
+        ========================================= -->
+        <section class="section">
+
+            <div class="container">
+
+                <div class="detail-section-heading">
+                    <p class="section-label">OVERVIEW</p>
+
+                    <h2>
+                        Building an endless runner
+                    </h2>
+
+                    <p>
+                        Pirate Jumper was built around a simple core loop:
+                        survive for as long as possible, collect coins and use
+                        the earned currency to unlock cosmetic characters.
+                    </p>
+
+                    <p>
+                        The project gave me the opportunity to experiment with
+                        reusable level segments, object pooling, persistent
+                        progression and systems that can continue running for
+                        an undefined amount of time.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             FEATURE 1
+             ENDLESS WORLD
+        ========================================= -->
+        <section class="section section-dark">
+
+            <div class="container">
+
+                <article class="feature-block">
+
+                    <div class="feature-media">
+
+                        <img
+                            src="../images/pirate-jumper/endless-world.gif"
+                            alt="Pirate Jumper endless level generation"
+                        >
+
+                    </div>
+
+
+                    <div class="feature-content">
+
+                        <p class="feature-number">01</p>
+
+                        <p class="section-label">
+                            ENDLESS WORLD SYSTEM
+                        </p>
+
+                        <h2>
+                            Moving the world instead of the player
+                        </h2>
+
+                        <p>
+                            Rather than continuously moving the player through
+                            the world, the player stays close to the origin while
+                            the environment moves past them.
+                        </p>
+
+                        <p>
+                            I chose this approach because an endless game can
+                            otherwise reach increasingly large world coordinates.
+                            Keeping the active gameplay area near the origin avoids
+                            relying on continuously growing position values.
+                        </p>
+
+                        <p>
+                            The world itself is assembled from reusable level
+                            segments. New segments are added ahead of the player
+                            while old sections are removed and reused once they
+                            are no longer required.
+                        </p>
+
+
+                        <div class="decision-box">
+
+                            <span class="decision-title">
+                                Why this approach?
+                            </span>
+
+                            <p>
+                                The goal was to keep the playable area small,
+                                allow the run to continue indefinitely and avoid
+                                constantly keeping old level geometry active.
+                            </p>
+
+                        </div>
+
+
+                        <div class="tag-list">
+                            <span class="tag">Endless Generation</span>
+                            <span class="tag">Object Pooling</span>
+                            <span class="tag">Modular Levels</span>
+                            <span class="tag">Parallax</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SMALL CODE EXAMPLE -->
+
+                <div class="code-showcase">
+
+                    <div class="code-description">
+
+                        <h3>Segment generation</h3>
+
+                        <p>
+                            During gameplay the system checks the distance to the
+                            end of the current level and requests another segment
+                            when required.
+                        </p>
+
+                    </div>
+
+
+                    <pre><code>if (Vector3.Distance(
+        player.position,
+        lastMapPrefabPart.position)
+        &lt; Player_Distance_Spawn_Level)
+{
+    SpawnMapPart(
+        mapPrefab.GetEndPosition()
+    );
+}</code></pre>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             FEATURE 2
+             ITEMS
+        ========================================= -->
+        <section class="section">
+
+            <div class="container">
+
+                <article class="feature-block feature-reverse">
+
+                    <div class="feature-media">
+
+                        <img
+                            src="../images/pirate-jumper/items.gif"
+                            alt="Pirate Jumper gameplay items"
+                        >
+
+                    </div>
+
+
+                    <div class="feature-content">
+
+                        <p class="feature-number">02</p>
+
+                        <p class="section-label">
+                            GAMEPLAY ITEMS
+                        </p>
+
+                        <h2>
+                            Temporary gameplay modifiers
+                        </h2>
+
+                        <p>
+                            Collectable items modify the current run instead of
+                            permanently changing the character.
+                        </p>
+
+                        <p>
+                            Some items manipulate the speed of the world while
+                            others temporarily interrupt or modify the normal
+                            movement behaviour.
+                        </p>
+
+                        <p>
+                            Because world movement is handled centrally, these
+                            effects can modify one shared gameplay system instead
+                            of changing every level segment individually.
+                        </p>
+
+
+                        <div class="decision-box">
+
+                            <span class="decision-title">
+                                Why modify world speed?
+                            </span>
+
+                            <p>
+                                Since the environment represents forward movement
+                                in the game, changing its speed provides a simple
+                                way to create effects such as boosts and slowdowns
+                                without changing the player's world position.
+                            </p>
+
+                        </div>
+
+
+                        <div class="tag-list">
+                            <span class="tag">Gameplay Systems</span>
+                            <span class="tag">Coroutines</span>
+                            <span class="tag">Speed Modifiers</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             FEATURE 3
+             CHARACTERS / LOOTBOX
+        ========================================= -->
+        <section class="section section-dark">
+
+            <div class="container">
+
+                <article class="feature-block">
+
+                    <div class="feature-media">
+
+                        <img
+                            src="../images/pirate-jumper/character-unlock.gif"
+                            alt="Pirate Jumper character unlock system"
+                        >
+
+                    </div>
+
+
+                    <div class="feature-content">
+
+                        <p class="feature-number">03</p>
+
+                        <p class="section-label">
+                            CHARACTER PROGRESSION
+                        </p>
+
+                        <h2>
+                            Unlockable cosmetic characters
+                        </h2>
+
+                        <p>
+                            Coins earned during gameplay can be spent on chests
+                            containing cosmetic characters.
+                        </p>
+
+                        <p>
+                            Characters are divided into multiple rarity tiers:
+                            Common, Rare, Epic and Legendary. Each rarity has its
+                            own probability when opening a chest.
+                        </p>
+
+                        <p>
+                            All characters use the same gameplay behaviour.
+                            The system was intentionally cosmetic so the player's
+                            progression provides additional goals without changing
+                            the balance of the endless-run gameplay.
+                        </p>
+
+
+                        <div class="decision-box">
+
+                            <span class="decision-title">
+                                Handling duplicates
+                            </span>
+
+                            <p>
+                                If the player receives a character they already
+                                own, the duplicate is converted back into currency.
+                                Higher rarity duplicates provide a larger reward.
+                            </p>
+
+                        </div>
+
+
+                        <div class="tag-list">
+                            <span class="tag">ScriptableObjects</span>
+                            <span class="tag">Rarity System</span>
+                            <span class="tag">Unlock System</span>
+                            <span class="tag">Persistent Data</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <div class="code-showcase">
+
+                    <div class="code-description">
+
+                        <h3>Rarity selection</h3>
+
+                        <p>
+                            A random roll determines which rarity pool is used
+                            when selecting a character.
+                        </p>
+
+                    </div>
+
+
+                    <pre><code>int randomNr = Random.Range(0, 100);
+
+if (randomNr &lt; 50)
+{
+    // Common
+}
+else if (randomNr &lt; 85)
+{
+    // Rare
+}
+else if (randomNr &lt; 95)
+{
+    // Epic
+}
+else
+{
+    // Legendary
+}</code></pre>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             FEATURE 4
+             SAVE / PROGRESSION
+        ========================================= -->
+        <section class="section">
+
+            <div class="container">
+
+                <article class="feature-block feature-reverse">
+
+                    <div class="feature-media">
+
+                        <img
+                            src="../images/pirate-jumper/progression.png"
+                            alt="Pirate Jumper character selection and progression"
+                        >
+
+                    </div>
+
+
+                    <div class="feature-content">
+
+                        <p class="feature-number">04</p>
+
+                        <p class="section-label">
+                            PERSISTENT PROGRESSION
+                        </p>
+
+                        <h2>
+                            Keeping progression between runs
+                        </h2>
+
+                        <p>
+                            Pirate Jumper stores progression locally so that
+                            unlocks and player progress remain available between
+                            sessions.
+                        </p>
+
+                        <p>
+                            Saved information includes unlocked characters,
+                            the currently selected character, chest progression,
+                            currency and local highscore data.
+                        </p>
+
+
+                        <div class="decision-box">
+
+                            <span class="decision-title">
+                                Why persistence matters
+                            </span>
+
+                            <p>
+                                The individual runs are temporary, but the
+                                progression system gives players a longer-term
+                                objective and connects repeated runs to each other.
+                            </p>
+
+                        </div>
+
+
+                        <div class="tag-list">
+                            <span class="tag">JSON</span>
+                            <span class="tag">Save / Load</span>
+                            <span class="tag">Local Highscore</span>
+                            <span class="tag">Progression</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             WHAT I LEARNED
+        ========================================= -->
+        <section class="section section-dark">
+
+            <div class="container">
+
+                <div class="learning-section">
+
+                    <p class="section-label">
+                        PROJECT TAKEAWAYS
+                    </p>
+
+                    <h2>
+                        What I learned
+                    </h2>
+
+                    <p>
+                        Pirate Jumper was one of my first projects where I focused
+                        more deliberately on reusable gameplay systems rather than
+                        simply making individual features work.
+                    </p>
+
+                    <p>
+                        In particular, the project introduced me to object pooling,
+                        modular runtime level generation and persistent progression.
+                        It was also my first project where I consistently used Git
+                        for version control throughout development.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             END LINKS
+        ========================================= -->
+        <section class="project-end-section">
+
+            <div class="container project-end-content">
+
+                <div>
+                    <p class="section-label">
+                        PIRATE JUMPER
+                    </p>
+
+                    <h2>
+                        Try the game
+                    </h2>
+                </div>
+
+
+                <div class="project-end-links">
+
+                    <a
+                        class="button button-primary"
+                        href="https://serplanetgames.itch.io/pirate-jumper"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        itch.io ↗
+                    </a>
+
+                    <a
+                        class="button button-secondary"
+                        href="../index.html#projects"
+                    >
+                        All Projects
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="site-footer">
+
+        <div class="container footer-content">
+
+            <p>
+                © 2026 Simon Hartmann
+            </p>
+
+            <a href="#">
+                Back to top ↑
+            </a>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
