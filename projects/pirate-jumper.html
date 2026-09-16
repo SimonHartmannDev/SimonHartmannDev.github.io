@@ -163,7 +163,7 @@
                         </span>
 
                         <span class="info-value">
-                            March 2025
+                            March 2026
                         </span>
 
                     </div>
@@ -301,13 +301,18 @@
 
                     <div class="feature-media hover-video">
 
+                        <img
+                            class="video-preview"
+                            src="../images/pirate-jumper/endless-world-preview.png"
+                            alt="Pirate Jumper endless level generation preview"
+                        >
+
                         <video
                             class="feature-video"
                             muted
                             loop
                             playsinline
                             preload="metadata"
-                            poster="../images/pirate-jumper/endless-world-preview.png"
                             aria-label="Pirate Jumper endless level generation"
                         >
 
@@ -317,7 +322,6 @@
                             >
 
                         </video>
-
 
                         <div class="video-hint">
                             ▶ Hover to play
@@ -474,29 +478,33 @@
 
             <div class="feature-media hover-video">
 
-                <video
-                    class="feature-video"
-                    muted
-                    loop
-                    playsinline
-                    preload="metadata"
-                    poster="../images/pirate-jumper/items-preview.png"
-                    aria-label="Pirate Jumper gameplay item chest"
+            <img
+                class="video-preview"
+                src="../images/pirate-jumper/items-preview.png"
+                alt="Pirate Jumper gameplay items preview"
+            >
+
+            <video
+                class="feature-video"
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                aria-label="Pirate Jumper gameplay item chest"
+            >
+
+                <source
+                    src="../images/pirate-jumper/items.mp4"
+                    type="video/mp4"
                 >
 
-                    <source
-                        src="../images/pirate-jumper/items.mp4"
-                        type="video/mp4"
-                    >
+            </video>
 
-                </video>
-
-
-                <div class="video-hint">
-                    ▶ Hover to play
-                </div>
-
+            <div class="video-hint">
+                ▶ Hover to play
             </div>
+
+        </div>
 
 
 
@@ -709,29 +717,33 @@ private void OnEnable()
 
                     <div class="feature-media hover-video">
 
-                        <video
-                            class="feature-video"
-                            muted
-                            loop
-                            playsinline
-                            preload="metadata"
-                            poster="../images/pirate-jumper/character-unlock-preview.png"
-                            aria-label="Pirate Jumper character unlock system"
-                        >
+                <img
+                    class="video-preview"
+                    src="../images/pirate-jumper/character-unlock-preview.png"
+                    alt="Pirate Jumper character unlock preview"
+                >
 
-                            <source
-                                src="../images/pirate-jumper/character-unlock.mp4"
-                                type="video/mp4"
-                            >
+                <video
+                    class="feature-video"
+                    muted
+                    loop
+                    playsinline
+                    preload="metadata"
+                    aria-label="Pirate Jumper character unlock system"
+                >
 
-                        </video>
+                    <source
+                        src="../images/pirate-jumper/character-unlock.mp4"
+                        type="video/mp4"
+                    >
 
+                </video>
 
-                        <div class="video-hint">
-                            ▶ Hover to play
-                        </div>
+                <div class="video-hint">
+                    ▶ Hover to play
+                </div>
 
-                    </div>
+            </div>
 
 
 
@@ -1225,22 +1237,68 @@ else
 
     <script>
 
-        const hoverVideos =
-            document.querySelectorAll(".hover-video");
+    const hoverVideos =
+        document.querySelectorAll(".hover-video");
 
 
-        hoverVideos.forEach(container => {
+    hoverVideos.forEach(container => {
 
-            const video =
-                container.querySelector("video");
+        const video =
+            container.querySelector(".feature-video");
 
-            const hint =
-                container.querySelector(".video-hint");
+        const hint =
+            container.querySelector(".video-hint");
 
 
-            container.addEventListener(
-                "mouseenter",
-                () => {
+        /* Desktop: start when mouse enters */
+
+        container.addEventListener(
+            "mouseenter",
+            () => {
+
+                container.classList.add("is-playing");
+
+                video.currentTime = 0;
+
+                video.play();
+
+                if (hint) {
+                    hint.classList.add("hidden");
+                }
+
+            }
+        );
+
+
+        /* Desktop: reset when mouse leaves */
+
+        container.addEventListener(
+            "mouseleave",
+            () => {
+
+                video.pause();
+
+                video.currentTime = 0;
+
+                container.classList.remove("is-playing");
+
+                if (hint) {
+                    hint.classList.remove("hidden");
+                }
+
+            }
+        );
+
+
+        /* Mobile / touch: tap to toggle */
+
+        container.addEventListener(
+            "click",
+            () => {
+
+                if (video.paused) {
+
+                    container.classList.add("is-playing");
 
                     video.play();
 
@@ -1249,54 +1307,26 @@ else
                     }
 
                 }
-            );
-
-
-            container.addEventListener(
-                "mouseleave",
-                () => {
+                else {
 
                     video.pause();
+
                     video.currentTime = 0;
+
+                    container.classList.remove("is-playing");
 
                     if (hint) {
                         hint.classList.remove("hidden");
                     }
 
                 }
-            );
 
+            }
+        );
 
-            container.addEventListener(
-                "click",
-                () => {
+    });
 
-                    if (video.paused) {
-
-                        video.play();
-
-                        if (hint) {
-                            hint.classList.add("hidden");
-                        }
-
-                    }
-                    else {
-
-                        video.pause();
-                        video.currentTime = 0;
-
-                        if (hint) {
-                            hint.classList.remove("hidden");
-                        }
-
-                    }
-
-                }
-            );
-
-        });
-
-    </script>
+</script>
 
 
 </body>
