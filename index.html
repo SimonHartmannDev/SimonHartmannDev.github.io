@@ -4,50 +4,290 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Your Name | Gameplay Programmer</title>
+    <title>Simon Hartmann | Game Developer</title>
 
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <header>
-        <h1>Your Name</h1>
-        <p>Computer Science Student | Game Developer</p>
+    <header class="site-header">
+        <div class="container nav">
+            <a class="logo" href="#">Simon Hartmann</a>
+
+            <nav>
+                <a href="#projects">Projects</a>
+                <a href="#about">About</a>
+                <a href="https://github.com/SimonHartmannDev" target="_blank">GitHub</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
     </header>
+
 
     <main>
 
-        <section>
-            <h2>Projects</h2>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container hero-content">
+                <p class="eyebrow">Computer Science Student · Game Developer</p>
 
-            <article>
-                <h3>Tanks of Chaos</h3>
-                <p>Solo-developed wave-based tank game released on Steam.</p>
-                <a href="projects/tanks-of-chaos.html">
-                    View Project
-                </a>
-            </article>
+                <h1>Simon Hartmann</h1>
 
-            <article>
-                <h3>Pirate Jumper</h3>
-                <p>Endless runner featuring modular level generation and object pooling.</p>
-                <a href="projects/pirate-jumper.html">
-                    View Project
-                </a>
-            </article>
+                <p class="hero-text">
+                    I develop games and gameplay systems in Unity using C#.
+                    My projects range from solo releases to university team projects,
+                    with a focus on gameplay programming and technical systems.
+                </p>
 
-            <article>
-                <h3>Paruzzel</h3>
-                <p>University team project focused on dimension-based puzzle mechanics.</p>
-                <a href="projects/paruzzel.html">
-                    View Project
-                </a>
-            </article>
+                <div class="hero-links">
+                    <a class="button primary" href="#projects">View Projects</a>
 
+                    <a class="button secondary"
+                       href="https://github.com/SimonHartmannDev"
+                       target="_blank">
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- PROJECTS -->
+        <section id="projects" class="projects-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="eyebrow">Featured Work</p>
+                    <h2>Projects</h2>
+                    <p>
+                        Selected game development projects focusing on gameplay,
+                        systems programming and team development.
+                    </p>
+                </div>
+
+
+                <!-- TANKS OF CHAOS -->
+                <article class="project-card">
+
+                    <a href="projects/tanks-of-chaos.html" class="project-image">
+                        <img
+                            src="images/tanks-of-chaos/cover.png"
+                            alt="Tanks of Chaos gameplay">
+                    </a>
+
+                    <div class="project-content">
+
+                        <div class="project-meta">
+                            <span>Solo Project</span>
+                            <span>Unity</span>
+                            <span>C#</span>
+                            <span>2024</span>
+                        </div>
+
+                        <h3>Tanks of Chaos</h3>
+
+                        <p>
+                            A wave-based tank combat game featuring unlockable vehicles,
+                            upgrades, persistent progression and increasingly large enemy waves.
+                            Developed independently and released on Steam.
+                        </p>
+
+                        <div class="project-tags">
+                            <span>Gameplay</span>
+                            <span>Progression</span>
+                            <span>JSON Save System</span>
+                            <span>Steam Release</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="projects/tanks-of-chaos.html">
+                                Technical Breakdown →
+                            </a>
+
+                            <a href="https://store.steampowered.com/app/3227600/Tanks_of_Chaos/"
+                               target="_blank">
+                                Steam ↗
+                            </a>
+                        </div>
+
+                    </div>
+                </article>
+
+
+                <!-- PIRATE JUMPER -->
+                <article class="project-card">
+
+                    <a href="projects/pirate-jumper.html" class="project-image">
+                        <img
+                            src="images/pirate-jumper/cover.png"
+                            alt="Pirate Jumper gameplay">
+                    </a>
+
+                    <div class="project-content">
+
+                        <div class="project-meta">
+                            <span>Solo Project</span>
+                            <span>Unity</span>
+                            <span>C#</span>
+                            <span>2025</span>
+                        </div>
+
+                        <h3>Pirate Jumper</h3>
+
+                        <p>
+                            An endless runner built around dynamically spawned modular
+                            level segments, object pooling and persistent cosmetic progression.
+                        </p>
+
+                        <div class="project-tags">
+                            <span>Object Pooling</span>
+                            <span>Endless Generation</span>
+                            <span>Progression</span>
+                            <span>Git</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="projects/pirate-jumper.html">
+                                Technical Breakdown →
+                            </a>
+
+                            <a href="https://serplanetgames.itch.io/pirate-jumper"
+                               target="_blank">
+                                itch.io ↗
+                            </a>
+                        </div>
+
+                    </div>
+                </article>
+
+
+                <!-- PARUZZEL -->
+                <article class="project-card">
+
+                    <a href="projects/paruzzel.html" class="project-image">
+                        <img
+                            src="images/paruzzel/cover.png"
+                            alt="Paruzzel gameplay">
+                    </a>
+
+                    <div class="project-content">
+
+                        <div class="project-meta">
+                            <span>University Team Project</span>
+                            <span>Unity</span>
+                            <span>C#</span>
+                        </div>
+
+                        <h3>Paruzzel</h3>
+
+                        <p>
+                            A first-person puzzle game in which every room exists in
+                            two dimensions. Players switch between both versions of
+                            the environment to solve spatial puzzles.
+                        </p>
+
+                        <div class="project-tags">
+                            <span>Player Controller</span>
+                            <span>Interaction System</span>
+                            <span>Team Development</span>
+                            <span>Git Branches</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="projects/paruzzel.html">
+                                Technical Breakdown →
+                            </a>
+                        </div>
+
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- ABOUT -->
+        <section id="about" class="about-section">
+            <div class="container about-grid">
+
+                <div>
+                    <p class="eyebrow">About</p>
+                    <h2>About Me</h2>
+                </div>
+
+                <div class="about-text">
+                    <p>
+                        I'm a Computer Science student with a strong interest in
+                        game development and gameplay programming.
+                    </p>
+
+                    <p>
+                        I primarily work with Unity and C# and have developed
+                        multiple playable projects ranging from independent games
+                        to university team projects.
+                    </p>
+
+                    <p>
+                        I'm currently preparing for a practical semester in the
+                        games industry, where I want to further develop my skills
+                        in gameplay programming and software development.
+                    </p>
+
+                    <div class="skills">
+                        <span>C#</span>
+                        <span>Unity</span>
+                        <span>Git</span>
+                        <span>Gameplay Programming</span>
+                        <span>JSON</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- CONTACT -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+
+                <p class="eyebrow">Contact</p>
+                <h2>Get in touch</h2>
+
+                <p>
+                    I'm currently looking for opportunities for a practical
+                    semester in game development.
+                </p>
+
+                <div class="contact-links">
+
+                    <a href="mailto:YOUR_EMAIL">
+                        Email
+                    </a>
+
+                    <a href="https://github.com/SimonHartmannDev"
+                       target="_blank">
+                        GitHub
+                    </a>
+
+                    <a href="https://serplanetgames.itch.io/"
+                       target="_blank">
+                        SerPlanetGames
+                    </a>
+
+                </div>
+
+            </div>
         </section>
 
     </main>
+
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Simon Hartmann</p>
+        </div>
+    </footer>
 
 </body>
 </html>
