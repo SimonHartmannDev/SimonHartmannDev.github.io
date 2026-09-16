@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Paruzzel | Simon Hartmann</title>
+
+    <meta
+        name="description"
+        content="Technical breakdown of Paruzzel, a first-person 3D puzzle game developed as a university team project in Unity."
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+</head>
+
+
+<body>
+
+
+    <!-- ========================================
+         NAVIGATION
+    ========================================= -->
+
+    <header class="site-header">
+
+        <div class="container nav-container">
+
+            <a
+                class="logo"
+                href="../index.html"
+            >
+                Simon Hartmann
+            </a>
+
+
+            <nav class="main-nav">
+
+                <a href="../index.html#about">
+                    About
+                </a>
+
+                <a href="../index.html#skills">
+                    Skills
+                </a>
+
+                <a href="../index.html#projects">
+                    Projects
+                </a>
+
+                <a href="../index.html#education">
+                    Education
+                </a>
+
+                <a href="../index.html#contact">
+                    Contact
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- ========================================
+             PROJECT HEADER
+        ========================================= -->
+
+        <section class="project-detail-hero">
+
+            <div class="container">
+
+
+                <a
+                    class="back-link"
+                    href="../index.html#projects"
+                >
+                    ← All Projects
+                </a>
+
+
+                <div class="project-detail-heading">
+
+
+                    <p class="section-label">
+                        UNIVERSITY TEAM PROJECT
+                    </p>
+
+
+                    <h1>
+                        Paruzzel
+                    </h1>
+
+
+                    <p class="project-detail-intro">
+
+                        A first-person 3D puzzle game developed in a team of five.
+                        The game is built around puzzle rooms that exist in two
+                        different dimensions, allowing the player to switch between
+                        different versions of the same environment.
+
+                    </p>
+
+
+                </div>
+
+
+
+                <div class="project-detail-meta">
+
+
+                    <div>
+
+                        <span class="info-label">
+                            Role
+                        </span>
+
+                        <span class="info-value">
+                            Gameplay Programmer
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="info-label">
+                            Engine
+                        </span>
+
+                        <span class="info-value">
+                            Unity
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="info-label">
+                            Language
+                        </span>
+
+                        <span class="info-value">
+                            C#
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="info-label">
+                            Team
+                        </span>
+
+                        <span class="info-value">
+                            5 Developers
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="info-label">
+                            Format
+                        </span>
+
+                        <span class="info-value">
+                            3D · First Person
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================
+             TRAILER / GAMEPLAY VIDEO
+        ========================================= -->
+
+        <section class="project-video-section">
+
+            <div class="container">
+
+                <div class="project-video">
+
+                    <video
+                        controls
+                        muted
+                        playsinline
+                        preload="metadata"
+                        poster="../images/paruzzel/video-cover.png"
+                    >
+
+                        <source
+                            src="../images/paruzzel/gameplay.mp4"
+                            type="video/mp4"
+                        >
+
+                        Your browser does not support HTML video.
+
+                    </video>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================
+             OVERVIEW
+        ========================================= -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="detail-section-heading">
+
+
+                    <p class="section-label">
+                        OVERVIEW
+                    </p>
+
+
+                    <h2>
+                        A puzzle game across two dimensions
+                    </h2>
+
+
+                    <p>
+
+                        Paruzzel is a first-person puzzle game in which each room
+                        can exist in two different dimensions. Switching dimensions
+                        changes parts of the environment and creates different ways
+                        to solve each puzzle.
+
+                    </p>
+
+
+                    <p>
+
+                        Puzzle elements include movable cubes, pressure plates,
+                        electrical systems and teleporters. Objects and routes can
+                        behave differently depending on the currently active
+                        dimension.
+
+                    </p>
+
+
+                    <p>
+
+                        My programming work focused on the player side of the game:
+                        first-person movement, interaction detection and physically
+                        picking up and carrying puzzle objects.
+
+                    </p>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================
+             FEATURE 1
+             PLAYER MOVEMENT
+        ========================================= -->
+
+        <section class="section section-dark">
+
+            <div class="container">
+
+
+                <article class="feature-block">
+
+
+                    <div class="feature-media hover-video">
+
+                        <video
+                            class="feature-video"
+                            muted
+                            loop
+                            playsinline
+                            preload="auto"
+                            aria-label="Paruzzel first person movement"
+                        >
+
+                            <source
+                                src="../images/paruzzel/movement.mp4"
+                                type="video/mp4"
+                            >
+
+                        </video>
+
+
+                        <div class="video-hint">
+                            ▶ Hover to play
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="feature-content">
+
+
+                        <p class="feature-number">
+                            01
+                        </p>
+
+
+                        <p class="section-label">
+                            FIRST-PERSON CONTROLLER
+                        </p>
+
+
+                        <h2>
+                            Responsive 3D player movement
+                        </h2>
+
+
+                        <p>
+
+                            Paruzzel was my first 3D game project and required a
+                            different approach to player movement compared with my
+                            previous 2D games.
+
+                        </p>
+
+
+                        <p>
+
+                            The player controller uses Unity's CharacterController
+                            and handles movement, sprinting, jumping and first-person
+                            camera rotation.
+
+                        </p>
+
+
+                        <p>
+
+                            Ground and air movement use different acceleration
+                            values, while jumping includes a short jump buffer and
+                            coyote time to make the controls more forgiving.
+
+                        </p>
+
+
+
+                        <div class="decision-box">
+
+                            <span class="decision-title">
+                                Why use CharacterController?
+                            </span>
+
+                            <p>
+
+                                I moved away from a Rigidbody-based controller to
+                                gain more direct control over movement and jumping.
+                                This made it easier to tune acceleration, gravity
+                                and ground detection for the type of precise movement
+                                required by a puzzle game.
+
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="tag-list">
+
+                            <span class="tag">
+                                CharacterController
+                            </span>
+
+                            <span class="tag">
+                                First-Person Movement
+                            </span>
+
+                            <span class="tag">
+                                Jump Buffer
+                            </span>
+
+                            <span class="tag">
+                                Coyote Time
+                            </span>
+
+                            <span class="tag">
+                                Camera Control
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </article>
+
+
+
+                <!-- ========================================
+                     MOVEMENT CODE
+                ========================================= -->
+
+                <div class="code-showcase">
+
+
+                    <div class="code-description">
+
+                        <h3>
+                            Ground and air movement
+                        </h3>
+
+
+                        <p>
+
+                            Horizontal movement uses different acceleration values
+                            depending on whether the player is currently grounded.
+
+                        </p>
+
+                    </div>
+
+
+                    <pre><code>private void MoveHorizontal(bool grounded)
+{
+    var currentSpeed =
+        _isSprinting
+            ? speed * sprintMultiplier
+            : speed;
+
+    var wishDir =
+        (
+            transform.forward * _movementInput.y
+            + transform.right * _movementInput.x
+        ).normalized;
+
+    var targetVelocity =
+        wishDir * currentSpeed;
+
+    var accel =
+        grounded
+            ? groundAcceleration
+            : airAcceleration;
+
+    var newSpeed =
+        Mathf.MoveTowards(
+            _horizontalVelocity.magnitude,
+            targetVelocity.magnitude,
+            accel * Time.fixedDeltaTime
+        );
+
+    _horizontalVelocity =
+        wishDir.sqrMagnitude > 0.0001f
+            ? wishDir * newSpeed
+            : Vector3.MoveTowards(
+                _horizontalVelocity,
+                Vector3.zero,
+                accel * Time.fixedDeltaTime
+            );
+}</code></pre>
+
+
+                </div>
+
+
+
+                <div class="code-showcase">
+
+
+                    <div class="code-description">
+
+                        <h3>
+                            Buffered jumping
+                        </h3>
+
+
+                        <p>
+
+                            Jump input is remembered briefly and can still trigger
+                            shortly after leaving the ground, making the controller
+                            more forgiving without changing the visible rules of
+                            the game.
+
+                        </p>
+
+                    </div>
+
+
+                    <pre><code>private bool CanJump =>
+    Time.time - _lastGroundedTime
+        <= coyoteTime
+    &&
+    Time.time >=
+        _lastJumpTime + jumpCooldown;
+
+
+private bool HasBufferedJump =>
+    _jumpRequested
+    &&
+    Time.time - _jumpRequestedTime
+        <= jumpBufferTime;
+
+
+private void HandleJump()
+{
+    if (!HasBufferedJump)
+        return;
+
+    if (!CanJump)
+        return;
+
+    _jumpRequested = false;
+
+    _verticalVelocity =
+        JumpVelocity;
+
+    _launchVerticalVelocity =
+        _verticalVelocity;
+
+    _lastJumpTime =
+        Time.time;
+}</code></pre>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================
+             FEATURE 2
+             INTERACTION SYSTEM
+        ========================================= -->
+
+        <section class="section">
+
+            <div class="container">
+
+
+                <article class="feature-block feature-reverse">
+
+
+                    <div class="feature-media hover-video">
+
+                        <video
+                            class="feature-video"
+                            muted
+                            loop
+                            playsinline
+                            preload="auto"
+                            aria-label="Paruzzel object interaction system"
+                        >
+
+                            <source
+                                src="../images/paruzzel/interaction.mp4"
+                                type="video/mp4"
+                            >
+
+                        </video>
+
+
+                        <div class="video-hint">
+                            ▶ Hover to play
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="feature-content">
+
+
+                        <p class="feature-number">
+                            02
+                        </p>
+
+
+                        <p class="section-label">
+                            PLAYER INTERACTION
+                        </p>
+
+
+                        <h2>
+                            Detecting and interacting with puzzle objects
+                        </h2>
+
+
+                        <p>
+
+                            Player interaction is based on raycasts originating
+                            from the first-person camera.
+
+                        </p>
+
+
+                        <p>
+
+                            The raycasting system provides information about the
+                            object the player is currently looking at. Other player
+                            systems can then use that information to decide whether
+                            the object can be interacted with or picked up.
+
+                        </p>
+
+
+                        <p>
+
+                            This keeps object detection separate from the behaviour
+                            that actually performs an interaction.
+
+                        </p>
+
+
+
+                        <div class="decision-box">
+
+                            <span class="decision-title">
+                                Why separate detection from interaction?
+                            </span>
+
+                            <p>
+
+                                Multiple gameplay systems need to know what the player
+                                is currently looking at. Keeping the raycasting logic
+                                independent prevents each interaction mechanic from
+                                performing its own separate detection.
+
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="tag-list">
+
+                            <span class="tag">
+                                Raycasting
+                            </span>
+
+                            <span class="tag">
+                                Interaction
+                            </span>
+
+                            <span class="tag">
+                                Layer Masks
+                            </span>
+
+                            <span class="tag">
+                                First-Person Gameplay
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </article>
+
+
+
+                <!-- ========================================
+                     RAYCAST CODE
+                ========================================= -->
+
+                <div class="code-showcase">
+
+
+                    <div class="code-description">
+
+                        <h3>
+                            Camera-based detection
+                        </h3>
+
+
+                        <p>
+
+                            Raycasts start slightly in front of the camera and
+                            search for objects within the player's interaction range.
+
+                        </p>
+
+                    </div>
+
+
+                    <pre><code>var origin =
+    cameraTransform.position
+    + cameraTransform.forward * 0.2f;
+
+var direction =
+    cameraTransform.forward;
+
+
+if (Physics.Raycast(
+        origin,
+        direction,
+        out var hit,
+        range,
+        mask,
+        QueryTriggerInteraction.Ignore))
+{
+    var result =
+        new RaycasterResult(
+            Time.time,
+            hit.point,
+            hit.collider.gameObject
+        );
+}</code></pre>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================
+             FEATURE 3
+             PICKUP SYSTEM
+        ========================================= -->
+
+        <section class="section section-dark">
+
+            <div class="container">
+
+
+                <article class="feature-block">
+
+
+                    <div class="feature-media hover-video">
+
+                        <video
+                            class="feature-video"
+                            muted
+                            loop
+                            playsinline
+                            preload="auto"
+                            aria-label="Paruzzel cube pickup system"
+                        >
+
+                            <source
+                                src="../images/paruzzel/pickup.mp4"
+                                type="video/mp4"
+                            >
+
+                        </video>
+
+
+                        <div class="video-hint">
+                            ▶ Hover to play
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="feature-content">
+
+
+                        <p class="feature-number">
+                            03
+                        </p>
+
+
+                        <p class="section-label">
+                            OBJECT PICKUP SYSTEM
+                        </p>
+
+
+                        <h2>
+                            Carrying physics-based puzzle objects
+                        </h2>
+
+
+                        <p>
+
+                            Certain puzzle objects can be picked up and carried
+                            in front of the player.
+
+                        </p>
+
+
+                        <p>
+
+                            Instead of directly attaching the object to the camera,
+                            the grabber calculates a target position in front of the
+                            player and moves the object's Rigidbody toward it using
+                            a spring-like force and damping.
+
+                        </p>
+
+
+                        <p>
+
+                            If the object moves too far away from the hold position,
+                            it is automatically dropped. Held objects also use a
+                            dedicated physics layer to prevent collisions with the
+                            player's collider.
+
+                        </p>
+
+
+
+                        <div class="decision-box">
+
+                            <span class="decision-title">
+                                Why keep Rigidbody movement?
+                            </span>
+
+                            <p>
+
+                                Puzzle objects still need to behave as physical
+                                objects while they are carried. Moving them toward
+                                a target position allows them to follow the player
+                                smoothly while still keeping the pickup system
+                                connected to Unity's physics simulation.
+
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="tag-list">
+
+                            <span class="tag">
+                                Rigidbody Physics
+                            </span>
+
+                            <span class="tag">
+                                Pickup System
+                            </span>
+
+                            <span class="tag">
+                                Damping
+                            </span>
+
+                            <span class="tag">
+                                Collision Layers
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </article>
+
+
+
+                <!-- ========================================
+                     PICKUP CODE
+                ========================================= -->
+
+                <div class="code-showcase">
+
+
+                    <div class="code-description">
+
+                        <h3>
+                            Physics-based object holding
+                        </h3>
+
+
+                        <p>
+
+                            The held Rigidbody is continuously moved toward a
+                            target position in front of the camera using a spring
+                            force and velocity damping.
+
+                        </p>
+
+                    </div>
+
+
+                    <pre><code>Vector3 targetPosition =
+    cameraTransform.position
+    + cameraTransform.forward
+        * holdDistance
+    + Vector3.up
+        * holdHeightOffset;
+
+
+Vector3 toTarget =
+    targetPosition
+    - rb.position;
+
+
+Vector3 springForce =
+    toTarget
+    * followStrength;
+
+
+Vector3 dampingForce =
+    -rb.linearVelocity
+    * damping;
+
+
+Vector3 newVelocity =
+    rb.linearVelocity
+    +
+    (
+        springForce
+        + dampingForce
+    )
+    * Time.fixedDeltaTime;
+
+
+rb.linearVelocity =
+    Vector3.ClampMagnitude(
+        newVelocity,
+        maxHoldSpeed
+    );</code></pre>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================
+             FEATURE 4
+             DEVELOPMENT TOOL
+        ========================================= -->
+
+        <section class="section">
+
+            <div class="container">
+
+
+                <article class="feature-block feature-reverse">
+
+
+                    <div class="feature-media hover-video">
+
+                        <video
+                            class="feature-video"
+                            muted
+                            loop
+                            playsinline
+                            preload="auto"
+                            aria-label="Paruzzel developer free camera"
+                        >
+
+                            <source
+                                src="../images/paruzzel/freecam.mp4"
+                                type="video/mp4"
+                            >
+
+                        </video>
+
+
+                        <div class="video-hint">
+                            ▶ Hover to play
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="feature-content">
+
+
+                        <p class="feature-number">
+                            04
+                        </p>
+
+
+                        <p class="section-label">
+                            DEVELOPMENT TOOL
+                        </p>
+
+
+                        <h2>
+                            Freecam for testing puzzle rooms
+                        </h2>
+
+
+                        <p>
+
+                            I also implemented a developer freecam that temporarily
+                            disconnects the camera from the normal player controller.
+
+                        </p>
+
+
+                        <p>
+
+                            While active, the camera can fly freely through the
+                            environment. The normal CharacterController and movement
+                            component are disabled until the player returns to
+                            standard gameplay.
+
+                        </p>
+
+
+                        <p>
+
+                            The tool can also move the player's return position,
+                            which made it useful for quickly reaching and testing
+                            different areas of a puzzle room.
+
+                        </p>
+
+
+
+                        <div class="decision-box">
+
+                            <span class="decision-title">
+                                Why build a freecam?
+                            </span>
+
+                            <p>
+
+                                Testing a puzzle level often requires repeatedly
+                                reaching specific positions. A free camera reduced
+                                the time needed to move through already completed
+                                parts of a room while debugging.
+
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="tag-list">
+
+                            <span class="tag">
+                                Debug Tools
+                            </span>
+
+                            <span class="tag">
+                                Freecam
+                            </span>
+
+                            <span class="tag">
+                                Camera Control
+                            </span>
+
+                            <span class="tag">
+                                Development Workflow
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </article>
+
+
+
+                <!-- ========================================
+                     FREECAM CODE
+                ========================================= -->
+
+                <div class="code-showcase">
+
+
+                    <div class="code-description">
+
+                        <h3>
+                            Switching between player and freecam
+                        </h3>
+
+
+                        <p>
+
+                            Entering freecam stores the player's state, disables
+                            normal movement and detaches the camera pivot. Exiting
+                            restores the original player controller.
+
+                        </p>
+
+                    </div>
+
+
+                    <pre><code>private void EnterFreecam()
+{
+    _savedPlayerPosition =
+        transform.position;
+
+    _savedPlayerRotation =
+        transform.rotation;
+
+    _freecamPosition =
+        cameraPivot.position;
+
+
+    if (_cc != null)
+        _cc.enabled = false;
+
+    if (_playerMovement != null)
+        _playerMovement.enabled = false;
+
+
+    cameraPivot.SetParent(
+        null,
+        true
+    );
+
+    _active = true;
+}</code></pre>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================
+             TEAM ROLE
+        ========================================= -->
+
+        <section class="section section-dark">
+
+            <div class="container">
+
+                <div class="detail-section-heading">
+
+
+                    <p class="section-label">
+                        MY ROLE IN THE TEAM
+                    </p>
+
+
+                    <h2>
+                        Programming and early project coordination
+                    </h2>
+
+
+                    <p>
+
+                        At the beginning of the project I also took on organisational
+                        responsibilities alongside programming. I helped coordinate
+                        meetings, structure early planning and participate in gameplay
+                        and project decisions.
+
+                    </p>
+
+
+                    <p>
+
+                        As development progressed, my main technical responsibility
+                        became the player-side systems shown above.
+
+                    </p>
+
+
+                    <p>
+
+                        Other systems in Paruzzel, including major parts of the
+                        underlying event architecture and several puzzle mechanics,
+                        were implemented by other members of the team and are therefore
+                        intentionally not presented here as my own technical work.
+
+                    </p>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================
+             WHAT I LEARNED
+        ========================================= -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="learning-section">
+
+
+                    <p class="section-label">
+                        PROJECT TAKEAWAYS
+                    </p>
+
+
+                    <h2>
+                        What I learned from working in a team
+                    </h2>
+
+
+                    <p>
+
+                        Paruzzel was my first larger development project in a team
+                        of five and my first time building a 3D game.
+
+                    </p>
+
+
+                    <p>
+
+                        The project introduced me to working with a shared Git
+                        repository, feature branches, merge conflicts and dividing
+                        development work into separate tasks.
+
+                    </p>
+
+
+                    <p>
+
+                        I also learned that technical work is only one part of a
+                        team project. Planning, communication, keeping responsibilities
+                        clear and consistently following through on agreed tasks are
+                        just as important.
+
+                    </p>
+
+
+                    <p>
+
+                        Especially toward the end of the project, balancing university
+                        workload and project responsibilities showed me the importance
+                        of communicating problems early instead of allowing work to
+                        accumulate.
+
+                    </p>
+
+
+                    <p>
+
+                        That experience changed how I approach collaborative projects:
+                        I now place more emphasis on clear responsibilities, smaller
+                        tasks and communicating blockers before they become larger
+                        problems.
+
+                    </p>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================
+             END LINKS
+        ========================================= -->
+
+        <section class="project-end-section">
+
+            <div class="container project-end-content">
+
+
+                <div>
+
+                    <p class="section-label">
+                        PARUZZEL
+                    </p>
+
+
+                    <h2>
+                        University team project
+                    </h2>
+
+                </div>
+
+
+
+                <div class="project-end-links">
+
+                    <a
+                        class="button button-secondary"
+                        href="../index.html#projects"
+                    >
+                        All Projects
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ========================================
+         FOOTER
+    ========================================= -->
+
+    <footer class="site-footer">
+
+        <div class="container footer-content">
+
+            <p>
+                © 2026 Simon Hartmann
+            </p>
+
+
+            <a href="#">
+                Back to top ↑
+            </a>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- ========================================
+         FEATURE VIDEO HOVER
+    ========================================= -->
+
+    <script>
+
+        const hoverVideos =
+            document.querySelectorAll(".hover-video");
+
+
+        hoverVideos.forEach(container => {
+
+            const video =
+                container.querySelector(".feature-video");
+
+            const hint =
+                container.querySelector(".video-hint");
+
+
+            /*
+             * Render first video frame so no
+             * separate preview image is required.
+             */
+            video.addEventListener(
+                "loadedmetadata",
+                () => {
+
+                    video.currentTime = 0.01;
+
+                }
+            );
+
+
+            container.addEventListener(
+                "mouseenter",
+                () => {
+
+                    video.play();
+
+                    if (hint) {
+                        hint.classList.add("hidden");
+                    }
+
+                }
+            );
+
+
+            container.addEventListener(
+                "mouseleave",
+                () => {
+
+                    video.pause();
+
+                    video.currentTime = 0.01;
+
+                    if (hint) {
+                        hint.classList.remove("hidden");
+                    }
+
+                }
+            );
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
