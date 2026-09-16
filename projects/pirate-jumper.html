@@ -301,12 +301,6 @@
 
                     <div class="feature-media hover-video">
 
-                        <img
-                            class="video-preview"
-                            src="../images/pirate-jumper/endless-world-preview.png"
-                            alt="Pirate Jumper endless level generation preview"
-                        >
-
                         <video
                             class="feature-video"
                             muted
@@ -477,12 +471,6 @@
 
 
             <div class="feature-media hover-video">
-
-            <img
-                class="video-preview"
-                src="../images/pirate-jumper/items-preview.png"
-                alt="Pirate Jumper gameplay items preview"
-            >
 
             <video
                 class="feature-video"
@@ -717,11 +705,6 @@ private void OnEnable()
 
                     <div class="feature-media hover-video">
 
-                <img
-                    class="video-preview"
-                    src="../images/pirate-jumper/character-unlock-preview.png"
-                    alt="Pirate Jumper character unlock preview"
-                >
 
                 <video
                     class="feature-video"
@@ -1234,8 +1217,7 @@ else
     <!-- ========================================
          FEATURE VIDEO HOVER
     ========================================= -->
-
-    <script>
+<script>
 
     const hoverVideos =
         document.querySelectorAll(".hover-video");
@@ -1250,79 +1232,43 @@ else
             container.querySelector(".video-hint");
 
 
-        /* Desktop: start when mouse enters */
+        /*
+         * Force the browser to render the first frame.
+         * A tiny offset works more reliably than exactly 0.
+         */
+        video.addEventListener("loadedmetadata", () => {
 
-        container.addEventListener(
-            "mouseenter",
-            () => {
+            video.currentTime = 0.01;
 
-                container.classList.add("is-playing");
+        });
 
-                video.currentTime = 0;
 
-                video.play();
+        /* Desktop: play on hover */
 
-                if (hint) {
-                    hint.classList.add("hidden");
-                }
+        container.addEventListener("mouseenter", () => {
 
+            video.play();
+
+            if (hint) {
+                hint.classList.add("hidden");
             }
-        );
+
+        });
 
 
-        /* Desktop: reset when mouse leaves */
+        /* Desktop: stop and return to first frame */
 
-        container.addEventListener(
-            "mouseleave",
-            () => {
+        container.addEventListener("mouseleave", () => {
 
-                video.pause();
+            video.pause();
 
-                video.currentTime = 0;
+            video.currentTime = 0.01;
 
-                container.classList.remove("is-playing");
-
-                if (hint) {
-                    hint.classList.remove("hidden");
-                }
-
+            if (hint) {
+                hint.classList.remove("hidden");
             }
-        );
 
-
-        /* Mobile / touch: tap to toggle */
-
-        container.addEventListener(
-            "click",
-            () => {
-
-                if (video.paused) {
-
-                    container.classList.add("is-playing");
-
-                    video.play();
-
-                    if (hint) {
-                        hint.classList.add("hidden");
-                    }
-
-                }
-                else {
-
-                    video.pause();
-
-                    video.currentTime = 0;
-
-                    container.classList.remove("is-playing");
-
-                    if (hint) {
-                        hint.classList.remove("hidden");
-                    }
-
-                }
-
-            }
-        );
+        });
 
     });
 

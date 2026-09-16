@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Tanks of Chaos | Simon Hartmann</title>
+
+    <meta
+        name="description"
+        content="Technical breakdown of Tanks of Chaos, a wave-based tank combat game developed in Unity using C#."
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+</head>
+
+
+<body>
+
+
+    <!-- ========================================
+         NAVIGATION
+    ========================================= -->
+
+    <header class="site-header">
+
+        <div class="container nav-container">
+
+            <a
+                class="logo"
+                href="../index.html"
+            >
+                Simon Hartmann
+            </a>
+
+
+            <nav class="main-nav">
+
+                <a href="../index.html#about">
+                    About
+                </a>
+
+                <a href="../index.html#skills">
+                    Skills
+                </a>
+
+                <a href="../index.html#projects">
+                    Projects
+                </a>
+
+                <a href="../index.html#education">
+                    Education
+                </a>
+
+                <a href="../index.html#contact">
+                    Contact
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- ========================================
+             PROJECT HEADER
+        ========================================= -->
+
+        <section class="project-detail-hero">
+
+            <div class="container">
+
+
+                <a
+                    class="back-link"
+                    href="../index.html#projects"
+                >
+                    ← All Projects
+                </a>
+
+
+                <div class="project-detail-heading">
+
+
+                    <p class="section-label">
+                        SOLO DEVELOPMENT PROJECT
+                    </p>
+
+
+                    <h1>
+                        Tanks of Chaos
+                    </h1>
+
+
+                    <p class="project-detail-intro">
+
+                        A wave-based tank combat game developed as a solo project
+                        in Unity. Players fight increasingly large enemy waves,
+                        unlock new vehicles and improve their combat capabilities
+                        over the course of the game.
+
+                    </p>
+
+
+                </div>
+
+
+
+                <div class="project-detail-meta">
+
+
+                    <div>
+
+                        <span class="info-label">
+                            Role
+                        </span>
+
+                        <span class="info-value">
+                            Solo Developer
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="info-label">
+                            Engine
+                        </span>
+
+                        <span class="info-value">
+                            Unity
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="info-label">
+                            Language
+                        </span>
+
+                        <span class="info-value">
+                            C#
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="info-label">
+                            Development
+                        </span>
+
+                        <span class="info-value">
+                            Oct – Dec 2024
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="info-label">
+                            Release
+                        </span>
+
+                        <span class="info-value">
+                            Steam
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="project-detail-links">
+
+                    <a
+                        class="button button-primary"
+                        href="https://store.steampowered.com/app/3227600/Tanks_of_Chaos/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        View on Steam ↗
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================
+             GAMEPLAY VIDEO
+        ========================================= -->
+
+        <section class="project-video-section">
+
+            <div class="container">
+
+                <div class="project-video">
+
+                    <video
+                        controls
+                        muted
+                        playsinline
+                        preload="metadata"
+                        poster="../images/tanks-of-chaos/video-cover.png"
+                    >
+
+                        <source
+                            src="../images/tanks-of-chaos/gameplay.mp4"
+                            type="video/mp4"
+                        >
+
+                        Your browser does not support HTML video.
+
+                    </video>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================
+             OVERVIEW
+        ========================================= -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="detail-section-heading">
+
+
+                    <p class="section-label">
+                        OVERVIEW
+                    </p>
+
+
+                    <h2>
+                        Building a complete combat loop
+                    </h2>
+
+
+                    <p>
+
+                        Tanks of Chaos was my first larger solo game project that
+                        I developed from an initial idea into a complete playable
+                        release.
+
+                    </p>
+
+
+                    <p>
+
+                        The core loop revolves around surviving enemy waves,
+                        earning currency, unlocking vehicles and improving their
+                        combat capabilities.
+
+                    </p>
+
+
+                    <p>
+
+                        The project includes multiple vehicles, enemy behaviours,
+                        weapon types, maps, upgrades and Steam integration.
+
+                    </p>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================
+             FEATURE 1
+             WAVE SYSTEM
+        ========================================= -->
+
+        <section class="section section-dark">
+
+            <div class="container">
+
+
+                <article class="feature-block">
+
+
+                    <div class="feature-media hover-video">
+
+                        <video
+                            class="feature-video"
+                            muted
+                            loop
+                            playsinline
+                            preload="auto"
+                            aria-label="Tanks of Chaos enemy wave system"
+                        >
+
+                            <source
+                                src="../images/tanks-of-chaos/waves.mp4"
+                                type="video/mp4"
+                            >
+
+                        </video>
+
+
+                        <div class="video-hint">
+                            ▶ Hover to play
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="feature-content">
+
+
+                        <p class="feature-number">
+                            01
+                        </p>
+
+
+                        <p class="section-label">
+                            WAVE SYSTEM
+                        </p>
+
+
+                        <h2>
+                            Increasing pressure over time
+                        </h2>
+
+
+                        <p>
+
+                            Combat is structured around consecutive enemy waves.
+                            The WaveManager controls when a wave begins, how many
+                            enemies need to be spawned and when the next wave can
+                            start.
+
+                        </p>
+
+
+                        <p>
+
+                            Each wave increases the number of enemies the player
+                            has to fight. The system also supports separate boss
+                            enemies that can appear as part of the wave progression.
+
+                        </p>
+
+
+                        <p>
+
+                            Enemy deaths are reported back to the manager so it can
+                            track how many enemies remain and automatically continue
+                            the game once a wave has been cleared.
+
+                        </p>
+
+
+
+                        <div class="decision-box">
+
+                            <span class="decision-title">
+                                Why use explicit wave states?
+                            </span>
+
+                            <p>
+
+                                Separating the wave into start, active and end
+                                states gave me one place to control spawning,
+                                transitions and wave progression instead of
+                                distributing that logic across individual enemies.
+
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="tag-list">
+
+                            <span class="tag">
+                                Wave Management
+                            </span>
+
+                            <span class="tag">
+                                Enemy Spawning
+                            </span>
+
+                            <span class="tag">
+                                Game States
+                            </span>
+
+                            <span class="tag">
+                                Boss Waves
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </article>
+
+
+
+                <!-- ========================================
+                     WAVE SYSTEM CODE
+                ========================================= -->
+
+                <div class="code-showcase">
+
+
+                    <div class="code-description">
+
+                        <h3>
+                            Wave state flow
+                        </h3>
+
+
+                        <p>
+
+                            The manager uses a small state system to handle
+                            transitions between preparing, running and ending
+                            a wave.
+
+                        </p>
+
+                    </div>
+
+
+                    <pre><code>public enum WaveStatus
+{
+    None,
+    StartWave,
+    WhileWave,
+    EndWave
+}
+
+private void CurrentWaveStateChanged()
+{
+    switch (waveStatus)
+    {
+        case WaveStatus.StartWave:
+
+            enemysAlive = 0;
+            waveCount++;
+
+            WaveCountUpdate?.Invoke(
+                waveCount
+            );
+
+            StartCoroutine(
+                WaitForWaveToSpawn()
+            );
+
+            break;
+
+
+        case WaveStatus.EndWave:
+
+            currentEnemysSpawned = 0;
+            canSpawnEnemys = false;
+
+            UpdateStatus(
+                WaveStatus.StartWave
+            );
+
+            break;
+    }
+}</code></pre>
+
+
+                </div>
+
+
+
+                <div class="code-showcase">
+
+
+                    <div class="code-description">
+
+                        <h3>
+                            Scaling the wave size
+                        </h3>
+
+
+                        <p>
+
+                            The amount of enemies grows together with the current
+                            wave count, while designated boss waves use their own
+                            spawn behaviour.
+
+                        </p>
+
+                    </div>
+
+
+                    <pre><code>private int CalculateNewWave()
+{
+    if (waveCount % bosModulo == 0)
+    {
+        return 1;
+    }
+
+    return startEnemyWaveCount
+        + waveCount;
+}</code></pre>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================
+             FEATURE 2
+             ENEMY BEHAVIOUR
+        ========================================= -->
+
+        <section class="section">
+
+            <div class="container">
+
+
+                <article class="feature-block feature-reverse">
+
+
+                    <div class="feature-media hover-video">
+
+                        <video
+                            class="feature-video"
+                            muted
+                            loop
+                            playsinline
+                            preload="auto"
+                            aria-label="Tanks of Chaos enemy movement behaviour"
+                        >
+
+                            <source
+                                src="../images/tanks-of-chaos/enemies.mp4"
+                                type="video/mp4"
+                            >
+
+                        </video>
+
+
+                        <div class="video-hint">
+                            ▶ Hover to play
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="feature-content">
+
+
+                        <p class="feature-number">
+                            02
+                        </p>
+
+
+                        <p class="section-label">
+                            ENEMY BEHAVIOUR
+                        </p>
+
+
+                        <h2>
+                            Multiple enemy movement patterns
+                        </h2>
+
+
+                        <p>
+
+                            Enemies use different movement modes to create variation
+                            between encounters. Some enemies continuously move toward
+                            the player, while others can prepare and perform a direct
+                            dash attack.
+
+                        </p>
+
+
+                        <p>
+
+                            Another movement type uses slower turning and forward
+                            movement, producing a heavier enemy behaviour compared
+                            with the standard chasing enemies.
+
+                        </p>
+
+
+                        <p>
+
+                            The system keeps the individual behaviours behind a
+                            shared movement component, allowing enemy prefabs to use
+                            different movement styles through configuration.
+
+                        </p>
+
+
+
+                        <div class="decision-box">
+
+                            <span class="decision-title">
+                                Why multiple movement modes?
+                            </span>
+
+                            <p>
+
+                                I wanted enemy variety without requiring a completely
+                                separate movement script for every enemy type.
+                                Switching behaviour through one movement component
+                                allowed several enemy styles to share the same base
+                                system.
+
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="tag-list">
+
+                            <span class="tag">
+                                Enemy AI
+                            </span>
+
+                            <span class="tag">
+                                Chase Behaviour
+                            </span>
+
+                            <span class="tag">
+                                Dash Attacks
+                            </span>
+
+                            <span class="tag">
+                                Target Tracking
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </article>
+
+
+
+                <!-- ========================================
+                     ENEMY MOVEMENT CODE
+                ========================================= -->
+
+                <div class="code-showcase">
+
+
+                    <div class="code-description">
+
+                        <h3>
+                            Configurable movement behaviour
+                        </h3>
+
+
+                        <p>
+
+                            Each enemy can select a movement type that determines
+                            how it reacts to the player's position.
+
+                        </p>
+
+                    </div>
+
+
+                    <pre><code>public enum MovementType
+{
+    still,
+    movingTowardsEnemy,
+    attackDash,
+    MacMovement
+}
+
+private void HandleMovement()
+{
+    switch (movementType)
+    {
+        case MovementType.still:
+            break;
+
+        case MovementType.movingTowardsEnemy:
+            moveTowardsEnemy();
+            break;
+
+        case MovementType.attackDash:
+            HandleDash();
+            break;
+
+        case MovementType.MacMovement:
+            SlowMovement();
+            break;
+    }
+}</code></pre>
+
+
+                </div>
+
+
+
+                <!-- ========================================
+                     ENEMY POINTER
+                ========================================= -->
+
+                <div class="code-showcase">
+
+
+                    <div class="code-description">
+
+                        <h3>
+                            Off-screen enemy indicators
+                        </h3>
+
+
+                        <p>
+
+                            Enemies outside the camera view receive a screen-space
+                            indicator. The UI position is clamped to the edge of
+                            the screen so the player can still locate remaining
+                            enemies.
+
+                        </p>
+
+                    </div>
+
+
+                    <pre><code>Vector3 screenPosition =
+    Camera.main.WorldToScreenPoint(
+        target.position
+    );
+
+bool isOffScreen =
+    screenPosition.x &lt;= 0f ||
+    screenPosition.x &gt;= Screen.width ||
+    screenPosition.y &lt;= 0f ||
+    screenPosition.y &gt;= Screen.height;
+
+if (isOffScreen)
+{
+    screenPosition.x = Mathf.Clamp(
+        screenPosition.x,
+        borderSize,
+        Screen.width - borderSize
+    );
+
+    screenPosition.y = Mathf.Clamp(
+        screenPosition.y,
+        borderSize,
+        Screen.height - borderSize
+    );
+
+    transform.position =
+        screenPosition;
+}</code></pre>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================
+             FEATURE 3
+             PLAYER MOVEMENT / COMBAT
+        ========================================= -->
+
+        <section class="section section-dark">
+
+            <div class="container">
+
+
+                <article class="feature-block">
+
+
+                    <div class="feature-media hover-video">
+
+                        <video
+                            class="feature-video"
+                            muted
+                            loop
+                            playsinline
+                            preload="auto"
+                            aria-label="Tanks of Chaos vehicle movement and combat"
+                        >
+
+                            <source
+                                src="../images/tanks-of-chaos/combat.mp4"
+                                type="video/mp4"
+                            >
+
+                        </video>
+
+
+                        <div class="video-hint">
+                            ▶ Hover to play
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="feature-content">
+
+
+                        <p class="feature-number">
+                            03
+                        </p>
+
+
+                        <p class="section-label">
+                            VEHICLE COMBAT
+                        </p>
+
+
+                        <h2>
+                            Separate tank movement and turret aiming
+                        </h2>
+
+
+                        <p>
+
+                            Vehicle movement and weapon aiming are handled
+                            independently. The tank body accelerates and turns
+                            according to player movement input while the turret
+                            rotates separately toward the mouse position.
+
+                        </p>
+
+
+                        <p>
+
+                            Acceleration, deceleration and maximum speed are
+                            configurable values and can change depending on the
+                            current vehicle upgrades.
+
+                        </p>
+
+
+                        <p>
+
+                            Weapon behaviour also varies between vehicles.
+                            Standard projectiles travel directly forward while
+                            other weapons can use targeted projectile behaviour.
+
+                        </p>
+
+
+
+                        <div class="decision-box">
+
+                            <span class="decision-title">
+                                Why separate turret and vehicle movement?
+                            </span>
+
+                            <p>
+
+                                Allowing the tank body and turret to rotate
+                                independently gives the player the ability to
+                                keep aiming at enemies while moving in another
+                                direction, which became a central part of the
+                                combat controls.
+
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="tag-list">
+
+                            <span class="tag">
+                                Player Controller
+                            </span>
+
+                            <span class="tag">
+                                Unity Input System
+                            </span>
+
+                            <span class="tag">
+                                Turret Aiming
+                            </span>
+
+                            <span class="tag">
+                                Vehicle Upgrades
+                            </span>
+
+                            <span class="tag">
+                                Projectiles
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </article>
+
+
+
+                <!-- ========================================
+                     TURRET CODE
+                ========================================= -->
+
+                <div class="code-showcase">
+
+
+                    <div class="code-description">
+
+                        <h3>
+                            Independent turret aiming
+                        </h3>
+
+
+                        <p>
+
+                            The mouse position is converted into world space and
+                            used to rotate the turret independently from the tank
+                            body.
+
+                        </p>
+
+                    </div>
+
+
+                    <pre><code>private void UpdateTurretTowards()
+{
+    Vector2 mousePosition =
+        GetMousePostion();
+
+    Vector3 direction =
+        (Vector3)mousePosition
+        - turretParent.position;
+
+    float desiredAngle =
+        Mathf.Atan2(
+            direction.y,
+            direction.x
+        ) * Mathf.Rad2Deg;
+
+    float rotationStep =
+        turretRotationSpeed[
+            turretRotationSpeedCount
+        ] * Time.deltaTime;
+
+    turretParent.rotation =
+        Quaternion.RotateTowards(
+            turretParent.rotation,
+            Quaternion.Euler(
+                0,
+                0,
+                desiredAngle
+            ),
+            rotationStep
+        );
+}</code></pre>
+
+
+                </div>
+
+
+
+                <!-- ========================================
+                     PLAYER SPEED CODE
+                ========================================= -->
+
+                <div class="code-showcase">
+
+
+                    <div class="code-description">
+
+                        <h3>
+                            Acceleration and reversing
+                        </h3>
+
+
+                        <p>
+
+                            Vehicle speed changes gradually instead of switching
+                            instantly between full speed and stopping.
+
+                        </p>
+
+                    </div>
+
+
+                    <pre><code>if (inputVector.y &gt; 0)
+{
+    if (currentSpeed &lt;= 0.1f)
+    {
+        drivingForward = true;
+        currentForwardDirection = 1f;
+    }
+
+    currentSpeed +=
+        acceleration[acceleartionCount]
+        * Time.deltaTime;
+}
+else if (inputVector.y &lt; 0)
+{
+    if (currentSpeed &lt;= 0.1f)
+    {
+        drivingForward = false;
+        currentForwardDirection = -1f;
+    }
+}
+
+currentSpeed = Mathf.Clamp(
+    currentSpeed,
+    0f,
+    maxSpeed[speedCount]
+);</code></pre>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================
+             FEATURE 4
+             VEHICLES / SHOP
+        ========================================= -->
+
+        <section class="section">
+
+            <div class="container">
+
+
+                <article class="feature-block feature-reverse">
+
+
+                    <div class="feature-media">
+
+                        <img
+                            src="../images/tanks-of-chaos/shop.png"
+                            alt="Tanks of Chaos vehicle selection and shop"
+                        >
+
+                    </div>
+
+
+
+                    <div class="feature-content">
+
+
+                        <p class="feature-number">
+                            04
+                        </p>
+
+
+                        <p class="section-label">
+                            VEHICLE PROGRESSION
+                        </p>
+
+
+                        <h2>
+                            Unlocking different vehicles
+                        </h2>
+
+
+                        <p>
+
+                            Currency earned during combat can be used to unlock
+                            additional vehicles and maps.
+
+                        </p>
+
+
+                        <p>
+
+                            The available vehicles include multiple tank and
+                            vehicle types, each represented by its own prefab and
+                            configuration.
+
+                        </p>
+
+
+                        <p>
+
+                            The shop system keeps the unlock logic separate from
+                            the individual vehicle behaviour. A vehicle reports
+                            its type to the shop, which then updates the
+                            corresponding unlock state.
+
+                        </p>
+
+
+
+                        <div class="decision-box">
+
+                            <span class="decision-title">
+                                Why use multiple vehicles?
+                            </span>
+
+                            <p>
+
+                                Unlockable vehicles gave the combat loop a longer
+                                progression goal while also allowing me to experiment
+                                with different movement and weapon behaviours inside
+                                the same game.
+
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="tag-list">
+
+                            <span class="tag">
+                                Vehicle Unlocks
+                            </span>
+
+                            <span class="tag">
+                                Shop System
+                            </span>
+
+                            <span class="tag">
+                                Multiple Vehicles
+                            </span>
+
+                            <span class="tag">
+                                Maps
+                            </span>
+
+                            <span class="tag">
+                                Steam Achievements
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </article>
+
+
+
+                <!-- ========================================
+                     SHOP CODE
+                ========================================= -->
+
+                <div class="code-showcase">
+
+
+                    <div class="code-description">
+
+                        <h3>
+                            Vehicle unlock routing
+                        </h3>
+
+
+                        <p>
+
+                            Each vehicle has an identifier that the shop uses
+                            to update its corresponding unlock state.
+
+                        </p>
+
+                    </div>
+
+
+                    <pre><code>public void VehicleBought(
+    VehicleNames name)
+{
+    switch (name)
+    {
+        case VehicleNames.T_4:
+            UnlockT4();
+            break;
+
+        case VehicleNames.T_6:
+            UnlockT6();
+            break;
+
+        case VehicleNames.T_D1:
+            UnlockTD1();
+            break;
+
+        case VehicleNames.MG_Car:
+            UnlockMGCar();
+            break;
+
+        case VehicleNames.SC_1:
+            UnlockSpaceCraft();
+            break;
+
+        case VehicleNames.ReconVehicle:
+            UnlockReconVehicle();
+            break;
+    }
+}</code></pre>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================
+             WHAT I LEARNED
+        ========================================= -->
+
+        <section class="section section-dark">
+
+            <div class="container">
+
+                <div class="learning-section">
+
+
+                    <p class="section-label">
+                        PROJECT TAKEAWAYS
+                    </p>
+
+
+                    <h2>
+                        What I learned
+                    </h2>
+
+
+                    <p>
+
+                        Tanks of Chaos was an important step from small prototypes
+                        toward completing and releasing a larger solo game.
+
+                    </p>
+
+
+                    <p>
+
+                        I implemented the full gameplay loop myself, including
+                        player controls, enemy behaviour, wave progression,
+                        multiple vehicles, upgrades, maps and the surrounding
+                        game systems required for a complete release.
+
+                    </p>
+
+
+                    <p>
+
+                        Looking back at the project also made me much more aware
+                        of the importance of modular code structure and reusable
+                        systems. Those lessons influenced how I approached my
+                        later projects.
+
+                    </p>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================
+             END LINKS
+        ========================================= -->
+
+        <section class="project-end-section">
+
+            <div class="container project-end-content">
+
+
+                <div>
+
+                    <p class="section-label">
+                        TANKS OF CHAOS
+                    </p>
+
+
+                    <h2>
+                        View the released game
+                    </h2>
+
+                </div>
+
+
+
+                <div class="project-end-links">
+
+
+                    <a
+                        class="button button-primary"
+                        href="https://store.steampowered.com/app/3227600/Tanks_of_Chaos/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Steam ↗
+                    </a>
+
+
+                    <a
+                        class="button button-secondary"
+                        href="../index.html#projects"
+                    >
+                        All Projects
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ========================================
+         FOOTER
+    ========================================= -->
+
+    <footer class="site-footer">
+
+        <div class="container footer-content">
+
+            <p>
+                © 2026 Simon Hartmann
+            </p>
+
+
+            <a href="#">
+                Back to top ↑
+            </a>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- ========================================
+         FEATURE VIDEO HOVER
+    ========================================= -->
+
+    <script>
+
+        const hoverVideos =
+            document.querySelectorAll(".hover-video");
+
+
+        hoverVideos.forEach(container => {
+
+            const video =
+                container.querySelector(".feature-video");
+
+            const hint =
+                container.querySelector(".video-hint");
+
+
+            /*
+             * Load the first frame so the video itself
+             * can be used as the preview image.
+             */
+            video.addEventListener(
+                "loadedmetadata",
+                () => {
+
+                    video.currentTime = 0.01;
+
+                }
+            );
+
+
+            /* Desktop: play on hover */
+
+            container.addEventListener(
+                "mouseenter",
+                () => {
+
+                    video.play();
+
+                    if (hint) {
+                        hint.classList.add("hidden");
+                    }
+
+                }
+            );
+
+
+            /* Desktop: reset on mouse leave */
+
+            container.addEventListener(
+                "mouseleave",
+                () => {
+
+                    video.pause();
+
+                    video.currentTime = 0.01;
+
+                    if (hint) {
+                        hint.classList.remove("hidden");
+                    }
+
+                }
+            );
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
