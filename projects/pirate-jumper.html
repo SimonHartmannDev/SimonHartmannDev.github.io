@@ -460,133 +460,237 @@
 
 
         <!-- ========================================
-             FEATURE 2
-             ITEMS
-        ========================================= -->
+     FEATURE 2
+     GAMEPLAY ITEMS
+========================================= -->
 
-        <section class="section">
+<section class="section">
 
-            <div class="container">
-
-
-                <article class="feature-block feature-reverse">
+    <div class="container">
 
 
-                    <div class="feature-media hover-video">
-
-                        <video
-                            class="feature-video"
-                            muted
-                            loop
-                            playsinline
-                            preload="metadata"
-                            poster="../images/pirate-jumper/items-preview.png"
-                            aria-label="Pirate Jumper gameplay items"
-                        >
-
-                            <source
-                                src="../images/pirate-jumper/items.mp4"
-                                type="video/mp4"
-                            >
-
-                        </video>
+        <article class="feature-block feature-reverse">
 
 
-                        <div class="video-hint">
-                            ▶ Hover to play
-                        </div>
+            <div class="feature-media hover-video">
 
-                    </div>
+                <video
+                    class="feature-video"
+                    muted
+                    loop
+                    playsinline
+                    preload="metadata"
+                    poster="../images/pirate-jumper/items-preview.png"
+                    aria-label="Pirate Jumper gameplay item chest"
+                >
 
+                    <source
+                        src="../images/pirate-jumper/items.mp4"
+                        type="video/mp4"
+                    >
 
-
-                    <div class="feature-content">
-
-
-                        <p class="feature-number">
-                            02
-                        </p>
-
-
-                        <p class="section-label">
-                            GAMEPLAY ITEMS
-                        </p>
-
-
-                        <h2>
-                            Temporary gameplay modifiers
-                        </h2>
+                </video>
 
 
-                        <p>
+                <div class="video-hint">
+                    ▶ Hover to play
+                </div>
 
-                            Collectable items modify the current run instead of
-                            permanently changing the character.
-
-                        </p>
-
-
-                        <p>
-
-                            Some items manipulate the speed of the world while
-                            others temporarily interrupt or modify the normal
-                            movement behaviour.
-
-                        </p>
+            </div>
 
 
-                        <p>
 
-                            Because world movement is handled centrally, these
-                            effects can modify one shared gameplay system instead
-                            of changing every level segment individually.
-
-                        </p>
+            <div class="feature-content">
 
 
-                        <div class="decision-box">
-
-                            <span class="decision-title">
-                                Why modify world speed?
-                            </span>
-
-                            <p>
-
-                                Since the environment represents forward movement
-                                in the game, changing its speed provides a simple
-                                way to create effects such as boosts and slowdowns
-                                without changing the player's world position.
-
-                            </p>
-
-                        </div>
+                <p class="feature-number">
+                    02
+                </p>
 
 
-                        <div class="tag-list">
-
-                            <span class="tag">
-                                Gameplay Systems
-                            </span>
-
-                            <span class="tag">
-                                Coroutines
-                            </span>
-
-                            <span class="tag">
-                                Speed Modifiers
-                            </span>
-
-                        </div>
+                <p class="section-label">
+                    GAMEPLAY ITEMS
+                </p>
 
 
-                    </div>
+                <h2>
+                    Temporary items that change the current run
+                </h2>
 
-                </article>
+
+                <p>
+                    Special item chests can appear during a run and grant one of
+                    four temporary gameplay effects: Cannon, Magnet, Double Money
+                    or Halo.
+                </p>
+
+
+                <p>
+                    Each item has its own behaviour. The Magnet attracts nearby
+                    coins, Double Money increases the value of collected currency,
+                    the Halo provides a temporary protective effect and the Cannon
+                    launches the player forward.
+                </p>
+
+
+                <p>
+                    The chest system also handles the visual presentation of the
+                    pickup. Before the item is activated, the chest uses animation,
+                    lighting, sound and a pulsing effect to make the reward noticeable
+                    during gameplay.
+                </p>
+
+
+                <div class="decision-box">
+
+                    <span class="decision-title">
+                        Why temporary items?
+                    </span>
+
+                    <p>
+                        I wanted the basic endless-run controls to stay consistent,
+                        while still creating short moments where the gameplay changes.
+                        Temporary items add variation without permanently changing the
+                        player's movement or character stats.
+                    </p>
+
+                </div>
+
+
+                <div class="tag-list">
+
+                    <span class="tag">
+                        Gameplay Items
+                    </span>
+
+                    <span class="tag">
+                        ScriptableObjects
+                    </span>
+
+                    <span class="tag">
+                        Coroutines
+                    </span>
+
+                    <span class="tag">
+                        Animation
+                    </span>
+
+                    <span class="tag">
+                        Audio
+                    </span>
+
+                </div>
 
 
             </div>
 
-        </section>
+
+        </article>
+
+
+
+        <!-- ========================================
+             ITEM SYSTEM CODE
+        ========================================= -->
+
+        <div class="code-showcase">
+
+
+            <div class="code-description">
+
+                <h3>
+                    Selecting an item
+                </h3>
+
+
+                <p>
+                    When a chest becomes active, one of the available item types
+                    is selected randomly and its visual representation is loaded
+                    from the corresponding item data.
+                </p>
+
+            </div>
+
+
+            <pre><code>private ItemName[] allItems =
+{
+    ItemName.Kanon,
+    ItemName.Heiligenschein,
+    ItemName.DoubleMoney,
+    ItemName.Magnet
+};
+
+private void OnEnable()
+{
+    int random =
+        Random.Range(0, allItems.Length);
+
+    currentItem =
+        allItems[random];
+
+    ChangeItemVisual(
+        currentItem
+    );
+}</code></pre>
+
+
+        </div>
+
+
+
+        <div class="code-showcase">
+
+
+            <div class="code-description">
+
+                <h3>
+                    Activating the effect
+                </h3>
+
+
+                <p>
+                    After the chest opening animation finishes, the selected
+                    item activates its corresponding gameplay behaviour.
+                </p>
+
+            </div>
+
+
+            <pre><code>switch (currentItem)
+{
+    case ItemName.DoubleMoney:
+        player.UseDoubleMoney(
+            scriptableItem.itemDuration
+        );
+        break;
+
+    case ItemName.Kanon:
+        player.UseKanon(
+            item.transform.position
+        );
+        break;
+
+    case ItemName.Magnet:
+        player.UseMagnet(
+            scriptableItem.itemDuration
+        );
+        break;
+
+    case ItemName.Heiligenschein:
+        player.UseHeiligenschein(
+            scriptableItem.itemSprite,
+            scriptableItem.itemDuration
+        );
+        break;
+}</code></pre>
+
+
+        </div>
+
+
+    </div>
+
+</section>
 
 
 
@@ -770,111 +874,222 @@ else
 
 
         <!-- ========================================
-             FEATURE 4
-             SAVE / PROGRESSION
-        ========================================= -->
+     FEATURE 4
+     SAVE / PERSISTENT PROGRESSION
+========================================= -->
 
-        <section class="section">
+<section class="section">
 
-            <div class="container">
-
-
-                <article class="feature-block feature-reverse">
+    <div class="container">
 
 
-                    <div class="feature-media">
-
-                        <img
-                            src="../images/pirate-jumper/progression.png"
-                            alt="Pirate Jumper character selection and progression"
-                        >
-
-                    </div>
+        <article class="feature-block feature-reverse">
 
 
+            <!--
+                Screenshot suggestion:
+                Character selection screen showing
+                unlocked / locked characters + currency.
+            -->
+            <div class="feature-media">
 
-                    <div class="feature-content">
+                <img
+                    src="../images/pirate-jumper/progression.png"
+                    alt="Pirate Jumper persistent character progression"
+                >
 
-
-                        <p class="feature-number">
-                            04
-                        </p>
-
-
-                        <p class="section-label">
-                            PERSISTENT PROGRESSION
-                        </p>
-
-
-                        <h2>
-                            Keeping progression between runs
-                        </h2>
+            </div>
 
 
-                        <p>
 
-                            Pirate Jumper stores progression locally so that
-                            unlocks and player progress remain available between
-                            sessions.
-
-                        </p>
+            <div class="feature-content">
 
 
-                        <p>
-
-                            Saved information includes unlocked characters,
-                            the currently selected character, chest progression,
-                            currency and local highscore data.
-
-                        </p>
+                <p class="feature-number">
+                    04
+                </p>
 
 
-                        <div class="decision-box">
-
-                            <span class="decision-title">
-                                Why persistence matters
-                            </span>
-
-                            <p>
-
-                                The individual runs are temporary, but the
-                                progression system gives players a longer-term
-                                objective and connects repeated runs to each other.
-
-                            </p>
-
-                        </div>
+                <p class="section-label">
+                    PERSISTENT PROGRESSION
+                </p>
 
 
-                        <div class="tag-list">
-
-                            <span class="tag">
-                                JSON
-                            </span>
-
-                            <span class="tag">
-                                Save / Load
-                            </span>
-
-                            <span class="tag">
-                                Local Highscore
-                            </span>
-
-                            <span class="tag">
-                                Progression
-                            </span>
-
-                        </div>
+                <h2>
+                    Keeping progress between runs
+                </h2>
 
 
-                    </div>
+                <p>
+                    Individual runs are temporary, but the player's overall
+                    progression persists between game sessions.
+                </p>
 
-                </article>
+
+                <p>
+                    The game stores the local highscore, collected currency,
+                    unlocked characters, the currently selected character and
+                    chest progression using Unity's PlayerPrefs system.
+                </p>
+
+
+                <p>
+                    Character unlocks are converted into a compact list of
+                    integer values before being stored. When the game starts,
+                    the saved values are converted back into character identifiers
+                    and used to rebuild the player's unlocked character collection.
+                </p>
+
+
+                <div class="decision-box">
+
+                    <span class="decision-title">
+                        Why persistent progression?
+                    </span>
+
+                    <p>
+                        Endless runs restart every time the player loses, so I
+                        wanted the rewards earned during those runs to contribute
+                        towards a longer-term progression system. Unlockable
+                        characters, currency and highscores give repeated runs
+                        an additional purpose.
+                    </p>
+
+                </div>
+
+
+                <div class="tag-list">
+
+                    <span class="tag">
+                        PlayerPrefs
+                    </span>
+
+                    <span class="tag">
+                        Save / Load
+                    </span>
+
+                    <span class="tag">
+                        Character Unlocks
+                    </span>
+
+                    <span class="tag">
+                        Local Highscore
+                    </span>
+
+                    <span class="tag">
+                        Persistent Progression
+                    </span>
+
+                </div>
 
 
             </div>
 
-        </section>
+
+        </article>
+
+
+
+        <!-- ========================================
+             SAVE SYSTEM CODE
+        ========================================= -->
+
+        <div class="code-showcase">
+
+
+            <div class="code-description">
+
+                <h3>
+                    Saving unlocked characters
+                </h3>
+
+
+                <p>
+                    Unlocked characters are represented by enum values.
+                    Before saving, those values are converted into integers
+                    and stored as a comma-separated string.
+                </p>
+
+            </div>
+
+
+            <pre><code>public void SaveUnlockedCharacters(
+    List&lt;CharachterName&gt; characters)
+{
+    List&lt;int&gt; values = new List&lt;int&gt;();
+
+    foreach (var character in characters)
+    {
+        values.Add((int)character);
+    }
+
+    string data = string.Join(",", values);
+
+    PlayerPrefs.SetString(
+        UnlockedCharactersKey,
+        data
+    );
+
+    PlayerPrefs.Save();
+}</code></pre>
+
+
+        </div>
+
+
+
+        <div class="code-showcase">
+
+
+            <div class="code-description">
+
+                <h3>
+                    Loading progression
+                </h3>
+
+
+                <p>
+                    When the game starts, the stored string is split into
+                    individual values and converted back into character
+                    identifiers.
+                </p>
+
+            </div>
+
+
+            <pre><code>public List&lt;CharachterName&gt; LoadUnlockedCharacters()
+{
+    List&lt;CharachterName&gt; result =
+        new List&lt;CharachterName&gt;();
+
+    if (!PlayerPrefs.HasKey(UnlockedCharactersKey))
+    {
+        return result;
+    }
+
+    string data =
+        PlayerPrefs.GetString(UnlockedCharactersKey);
+
+    string[] split = data.Split(',');
+
+    foreach (string value in split)
+    {
+        if (int.TryParse(value, out int id))
+        {
+            result.Add((CharachterName)id);
+        }
+    }
+
+    return result;
+}</code></pre>
+
+
+        </div>
+
+
+    </div>
+
+</section>
 
 
 
