@@ -26,10 +26,6 @@
 <body>
 
 
-    <!-- ========================================
-         NAVIGATION
-    ========================================= -->
-
     <header class="site-header">
 
         <div class="container nav-container">
@@ -44,25 +40,11 @@
 
             <nav class="main-nav">
 
-                <a href="../index.html#about">
-                    About
-                </a>
-
-                <a href="../index.html#skills">
-                    Skills
-                </a>
-
-                <a href="../index.html#projects">
-                    Projects
-                </a>
-
-                <a href="../index.html#education">
-                    Education
-                </a>
-
-                <a href="../index.html#contact">
-                    Contact
-                </a>
+                <a href="../index.html#about">About</a>
+                <a href="../index.html#skills">Skills</a>
+                <a href="../index.html#projects">Projects</a>
+                <a href="../index.html#education">Education</a>
+                <a href="../index.html#contact">Contact</a>
 
             </nav>
 
@@ -92,8 +74,8 @@
                 </a>
 
 
-                <div class="project-detail-heading">
 
+                <div class="project-detail-heading">
 
                     <p class="section-label">
                         UNIVERSITY TEAM PROJECT
@@ -106,14 +88,11 @@
 
 
                     <p class="project-detail-intro">
-
                         A first-person 3D puzzle game developed in a team of five.
-                        The game is built around puzzle rooms that exist in two
-                        different dimensions, allowing the player to switch between
-                        different versions of the same environment.
-
+                        Each puzzle room exists in two dimensions, allowing the
+                        player to switch between different versions of the same
+                        environment.
                     </p>
-
 
                 </div>
 
@@ -177,11 +156,11 @@
                     <div>
 
                         <span class="info-label">
-                            Format
+                            Development
                         </span>
 
                         <span class="info-value">
-                            3D · First Person
+                            Summer Semester 2026
                         </span>
 
                     </div>
@@ -197,7 +176,7 @@
 
 
         <!-- ========================================
-             TRAILER / GAMEPLAY VIDEO
+             TRAILER
         ========================================= -->
 
         <section class="project-video-section">
@@ -241,7 +220,6 @@
 
                 <div class="detail-section-heading">
 
-
                     <p class="section-label">
                         OVERVIEW
                     </p>
@@ -253,31 +231,25 @@
 
 
                     <p>
-
                         Paruzzel is a first-person puzzle game in which each room
                         can exist in two different dimensions. Switching dimensions
                         changes parts of the environment and creates different ways
                         to solve each puzzle.
-
                     </p>
 
 
                     <p>
-
                         Puzzle elements include movable cubes, pressure plates,
                         electrical systems and teleporters. Objects and routes can
                         behave differently depending on the currently active
                         dimension.
-
                     </p>
 
 
                     <p>
-
                         My programming work focused on the player side of the game:
                         first-person movement, interaction detection and physically
                         picking up and carrying puzzle objects.
-
                     </p>
 
 
@@ -343,34 +315,28 @@
 
 
                         <h2>
-                            Responsive 3D player movement
+                            First-person 3D player movement
                         </h2>
 
 
                         <p>
-
                             Paruzzel was my first 3D game project and required a
                             different approach to player movement compared with my
                             previous 2D games.
-
                         </p>
 
 
                         <p>
-
                             The player controller uses Unity's CharacterController
                             and handles movement, sprinting, jumping and first-person
                             camera rotation.
-
                         </p>
 
 
                         <p>
-
                             Ground and air movement use different acceleration
                             values, while jumping includes a short jump buffer and
                             coyote time to make the controls more forgiving.
-
                         </p>
 
 
@@ -382,10 +348,11 @@
                             </span>
 
                             <p>
-
-                                I moved away from a Rigidbody-based controller to gain more direct control over movement and jumping.
-                                This made it easier to tune acceleration, gravity and ground detection, resulting in more consistent and responsive first-person movement.
-
+                                I moved away from a Rigidbody-based controller to
+                                gain more direct control over movement and jumping.
+                                This made it easier to tune acceleration, gravity
+                                and ground detection, resulting in more consistent
+                                and responsive first-person movement.
                             </p>
 
                         </div>
@@ -424,10 +391,6 @@
 
 
 
-                <!-- ========================================
-                     MOVEMENT CODE
-                ========================================= -->
-
                 <div class="code-showcase">
 
 
@@ -437,18 +400,16 @@
                             Ground and air movement
                         </h3>
 
-
                         <p>
-
-                            Horizontal movement uses different acceleration values
-                            depending on whether the player is currently grounded.
-
+                            Horizontal movement uses different acceleration
+                            values depending on whether the player is grounded.
                         </p>
 
                     </div>
 
 
-                    <pre><code>private void MoveHorizontal(bool grounded)
+                    <pre><code>private void MoveHorizontal(
+    bool grounded)
 {
     var currentSpeed =
         _isSprinting
@@ -457,8 +418,11 @@
 
     var wishDir =
         (
-            transform.forward * _movementInput.y
-            + transform.right * _movementInput.x
+            transform.forward
+                * _movementInput.y
+            +
+            transform.right
+                * _movementInput.x
         ).normalized;
 
     var targetVelocity =
@@ -500,14 +464,9 @@
                             Buffered jumping
                         </h3>
 
-
                         <p>
-
                             Jump input is remembered briefly and can still trigger
-                            shortly after leaving the ground, making the controller
-                            more forgiving without changing the visible rules of
-                            the game.
-
+                            shortly after leaving the ground.
                         </p>
 
                     </div>
@@ -515,9 +474,9 @@
 
                     <pre><code>private bool CanJump =>
     Time.time - _lastGroundedTime
-        <= coyoteTime
+        &lt;= coyoteTime
     &&
-    Time.time >=
+    Time.time &gt;=
         _lastJumpTime + jumpCooldown;
 
 
@@ -525,7 +484,7 @@ private bool HasBufferedJump =>
     _jumpRequested
     &&
     Time.time - _jumpRequestedTime
-        <= jumpBufferTime;
+        &lt;= jumpBufferTime;
 
 
 private void HandleJump()
@@ -560,7 +519,7 @@ private void HandleJump()
 
         <!-- ========================================
              FEATURE 2
-             INTERACTION SYSTEM
+             INTERACTION
         ========================================= -->
 
         <section class="section">
@@ -617,28 +576,22 @@ private void HandleJump()
 
 
                         <p>
-
                             Player interaction is based on raycasts originating
                             from the first-person camera.
-
                         </p>
 
 
                         <p>
-
                             The raycasting system provides information about the
                             object the player is currently looking at. Other player
-                            systems can then use that information to decide whether
-                            the object can be interacted with or picked up.
-
+                            systems can use that information to decide whether the
+                            object can be interacted with or picked up.
                         </p>
 
 
                         <p>
-
                             This keeps object detection separate from the behaviour
-                            that actually performs an interaction.
-
+                            that actually performs the interaction.
                         </p>
 
 
@@ -650,12 +603,10 @@ private void HandleJump()
                             </span>
 
                             <p>
-
-                                Multiple gameplay systems need to know what the player
-                                is currently looking at. Keeping the raycasting logic
-                                independent prevents each interaction mechanic from
-                                performing its own separate detection.
-
+                                Multiple gameplay systems need to know what the
+                                player is currently looking at. Keeping the
+                                raycasting logic independent prevents each mechanic
+                                from performing its own separate detection.
                             </p>
 
                         </div>
@@ -690,10 +641,6 @@ private void HandleJump()
 
 
 
-                <!-- ========================================
-                     RAYCAST CODE
-                ========================================= -->
-
                 <div class="code-showcase">
 
 
@@ -703,12 +650,9 @@ private void HandleJump()
                             Camera-based detection
                         </h3>
 
-
                         <p>
-
                             Raycasts start slightly in front of the camera and
-                            search for objects within the player's interaction range.
-
+                            search for objects within the interaction range.
                         </p>
 
                     </div>
@@ -720,7 +664,6 @@ private void HandleJump()
 
 var direction =
     cameraTransform.forward;
-
 
 if (Physics.Raycast(
         origin,
@@ -807,30 +750,24 @@ if (Physics.Raycast(
 
 
                         <p>
-
                             Certain puzzle objects can be picked up and carried
                             in front of the player.
-
                         </p>
 
 
                         <p>
-
                             Instead of directly attaching the object to the camera,
                             the grabber calculates a target position in front of the
                             player and moves the object's Rigidbody toward it using
                             a spring-like force and damping.
-
                         </p>
 
 
                         <p>
-
-                            If the object moves too far away from the hold position,
+                            If an object moves too far away from the hold position,
                             it is automatically dropped. Held objects also use a
                             dedicated physics layer to prevent collisions with the
                             player's collider.
-
                         </p>
 
 
@@ -842,13 +779,11 @@ if (Physics.Raycast(
                             </span>
 
                             <p>
-
                                 Puzzle objects still need to behave as physical
-                                objects while they are carried. Moving them toward
+                                objects while being carried. Moving them toward
                                 a target position allows them to follow the player
-                                smoothly while still keeping the pickup system
-                                connected to Unity's physics simulation.
-
+                                smoothly while remaining connected to Unity's
+                                physics simulation.
                             </p>
 
                         </div>
@@ -883,10 +818,6 @@ if (Physics.Raycast(
 
 
 
-                <!-- ========================================
-                     PICKUP CODE
-                ========================================= -->
-
                 <div class="code-showcase">
 
 
@@ -896,13 +827,9 @@ if (Physics.Raycast(
                             Physics-based object holding
                         </h3>
 
-
                         <p>
-
                             The held Rigidbody is continuously moved toward a
-                            target position in front of the camera using a spring
-                            force and velocity damping.
-
+                            target position using spring force and velocity damping.
                         </p>
 
                     </div>
@@ -915,21 +842,17 @@ if (Physics.Raycast(
     + Vector3.up
         * holdHeightOffset;
 
-
 Vector3 toTarget =
     targetPosition
     - rb.position;
-
 
 Vector3 springForce =
     toTarget
     * followStrength;
 
-
 Vector3 dampingForce =
     -rb.linearVelocity
     * damping;
-
 
 Vector3 newVelocity =
     rb.linearVelocity
@@ -939,7 +862,6 @@ Vector3 newVelocity =
         + dampingForce
     )
     * Time.fixedDeltaTime;
-
 
 rb.linearVelocity =
     Vector3.ClampMagnitude(
@@ -959,7 +881,7 @@ rb.linearVelocity =
 
         <!-- ========================================
              FEATURE 4
-             DEVELOPMENT TOOL
+             FREECAM
         ========================================= -->
 
         <section class="section">
@@ -1016,29 +938,22 @@ rb.linearVelocity =
 
 
                         <p>
-
                             I also implemented a developer freecam that temporarily
                             disconnects the camera from the normal player controller.
-
                         </p>
 
 
                         <p>
-
                             While active, the camera can fly freely through the
                             environment. The normal CharacterController and movement
-                            component are disabled until the player returns to
-                            standard gameplay.
-
+                            component are disabled until standard gameplay resumes.
                         </p>
 
 
                         <p>
-
                             The tool can also move the player's return position,
-                            which made it useful for quickly reaching and testing
+                            which makes it useful for quickly reaching and testing
                             different areas of a puzzle room.
-
                         </p>
 
 
@@ -1050,12 +965,10 @@ rb.linearVelocity =
                             </span>
 
                             <p>
-
                                 Testing a puzzle level often requires repeatedly
-                                reaching specific positions. A free camera reduced
+                                reaching specific locations. A free camera reduces
                                 the time needed to move through already completed
-                                parts of a room while debugging.
-
+                                areas while debugging.
                             </p>
 
                         </div>
@@ -1090,26 +1003,18 @@ rb.linearVelocity =
 
 
 
-                <!-- ========================================
-                     FREECAM CODE
-                ========================================= -->
-
                 <div class="code-showcase">
 
 
                     <div class="code-description">
 
                         <h3>
-                            Switching between player and freecam
+                            Switching to freecam
                         </h3>
 
-
                         <p>
-
                             Entering freecam stores the player's state, disables
-                            normal movement and detaches the camera pivot. Exiting
-                            restores the original player controller.
-
+                            normal movement and detaches the camera pivot.
                         </p>
 
                     </div>
@@ -1126,13 +1031,15 @@ rb.linearVelocity =
     _freecamPosition =
         cameraPivot.position;
 
-
     if (_cc != null)
+    {
         _cc.enabled = false;
+    }
 
     if (_playerMovement != null)
+    {
         _playerMovement.enabled = false;
-
+    }
 
     cameraPivot.SetParent(
         null,
@@ -1174,30 +1081,24 @@ rb.linearVelocity =
 
 
                     <p>
-
                         At the beginning of the project I also took on organisational
                         responsibilities alongside programming. I helped coordinate
                         meetings, structure early planning and participate in gameplay
                         and project decisions.
-
                     </p>
 
 
                     <p>
-
                         As development progressed, my main technical responsibility
                         became the player-side systems shown above.
-
                     </p>
 
 
                     <p>
-
                         Other systems in Paruzzel, including major parts of the
                         underlying event architecture and several puzzle mechanics,
                         were implemented by other members of the team and are therefore
                         intentionally not presented here as my own technical work.
-
                     </p>
 
 
@@ -1210,7 +1111,7 @@ rb.linearVelocity =
 
 
         <!-- ========================================
-             WHAT I LEARNED
+             LEARNING
         ========================================= -->
 
         <section class="section">
@@ -1231,49 +1132,39 @@ rb.linearVelocity =
 
 
                     <p>
-
                         Paruzzel was my first larger development project in a team
                         of five and my first time building a 3D game.
-
                     </p>
 
 
                     <p>
-
                         The project introduced me to working with a shared Git
                         repository, feature branches, merge conflicts and dividing
                         development work into separate tasks.
-
                     </p>
 
 
                     <p>
-
                         I also learned that technical work is only one part of a
                         team project. Planning, communication, keeping responsibilities
                         clear and consistently following through on agreed tasks are
                         just as important.
-
                     </p>
 
 
                     <p>
-
                         Especially toward the end of the project, balancing university
                         workload and project responsibilities showed me the importance
                         of communicating problems early instead of allowing work to
                         accumulate.
-
                     </p>
 
 
                     <p>
-
                         That experience changed how I approach collaborative projects:
                         I now place more emphasis on clear responsibilities, smaller
                         tasks and communicating blockers before they become larger
                         problems.
-
                     </p>
 
 
@@ -1285,10 +1176,6 @@ rb.linearVelocity =
 
 
 
-        <!-- ========================================
-             END LINKS
-        ========================================= -->
-
         <section class="project-end-section">
 
             <div class="container project-end-content">
@@ -1299,7 +1186,6 @@ rb.linearVelocity =
                     <p class="section-label">
                         PARUZZEL
                     </p>
-
 
                     <h2>
                         University team project
@@ -1330,10 +1216,6 @@ rb.linearVelocity =
 
 
 
-    <!-- ========================================
-         FOOTER
-    ========================================= -->
-
     <footer class="site-footer">
 
         <div class="container footer-content">
@@ -1341,7 +1223,6 @@ rb.linearVelocity =
             <p>
                 © 2026 Simon Hartmann
             </p>
-
 
             <a href="#">
                 Back to top ↑
@@ -1352,10 +1233,6 @@ rb.linearVelocity =
     </footer>
 
 
-
-    <!-- ========================================
-         FEATURE VIDEO HOVER
-    ========================================= -->
 
     <script>
 
@@ -1372,16 +1249,10 @@ rb.linearVelocity =
                 container.querySelector(".video-hint");
 
 
-            /*
-             * Render first video frame so no
-             * separate preview image is required.
-             */
             video.addEventListener(
                 "loadedmetadata",
                 () => {
-
                     video.currentTime = 0.01;
-
                 }
             );
 
@@ -1405,7 +1276,6 @@ rb.linearVelocity =
                 () => {
 
                     video.pause();
-
                     video.currentTime = 0.01;
 
                     if (hint) {

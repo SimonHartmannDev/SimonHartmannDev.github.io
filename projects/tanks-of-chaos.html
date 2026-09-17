@@ -26,10 +26,6 @@
 <body>
 
 
-    <!-- ========================================
-         NAVIGATION
-    ========================================= -->
-
     <header class="site-header">
 
         <div class="container nav-container">
@@ -44,25 +40,11 @@
 
             <nav class="main-nav">
 
-                <a href="../index.html#about">
-                    About
-                </a>
-
-                <a href="../index.html#skills">
-                    Skills
-                </a>
-
-                <a href="../index.html#projects">
-                    Projects
-                </a>
-
-                <a href="../index.html#education">
-                    Education
-                </a>
-
-                <a href="../index.html#contact">
-                    Contact
-                </a>
+                <a href="../index.html#about">About</a>
+                <a href="../index.html#skills">Skills</a>
+                <a href="../index.html#projects">Projects</a>
+                <a href="../index.html#education">Education</a>
+                <a href="../index.html#contact">Contact</a>
 
             </nav>
 
@@ -92,28 +74,22 @@
                 </a>
 
 
-                <div class="project-detail-heading">
 
+                <div class="project-detail-heading">
 
                     <p class="section-label">
                         SOLO DEVELOPMENT PROJECT
                     </p>
 
-
                     <h1>
                         Tanks of Chaos
                     </h1>
 
-
                     <p class="project-detail-intro">
-
                         A wave-based tank combat game developed as a solo project
                         in Unity. Players fight increasingly large enemy waves,
-                        unlock new vehicles and improve their combat capabilities
-                        over the course of the game.
-
+                        unlock new vehicles and improve their combat capabilities.
                     </p>
-
 
                 </div>
 
@@ -256,42 +232,30 @@
 
                 <div class="detail-section-heading">
 
-
                     <p class="section-label">
                         OVERVIEW
                     </p>
-
 
                     <h2>
                         Building a complete combat loop
                     </h2>
 
-
                     <p>
-
                         Tanks of Chaos was my first larger solo game project that
                         I developed from an initial idea into a complete playable
                         release.
-
                     </p>
 
-
                     <p>
-
                         The core loop revolves around surviving enemy waves,
                         earning currency, unlocking vehicles and improving their
                         combat capabilities.
-
                     </p>
-
 
                     <p>
-
                         The project includes multiple vehicles, enemy behaviours,
                         weapon types, maps, upgrades and Steam integration.
-
                     </p>
-
 
                 </div>
 
@@ -360,30 +324,23 @@
 
 
                         <p>
-
                             Combat is structured around consecutive enemy waves.
                             The WaveManager controls when a wave begins, how many
-                            enemies need to be spawned and when the next wave can
-                            start.
-
+                            enemies need to be spawned and when the next wave starts.
                         </p>
 
 
                         <p>
-
                             Each wave increases the number of enemies the player
                             has to fight. The system also supports separate boss
-                            enemies that can appear as part of the wave progression.
-
+                            enemies as part of the wave progression.
                         </p>
 
 
                         <p>
-
                             Enemy deaths are reported back to the manager so it can
                             track how many enemies remain and automatically continue
-                            the game once a wave has been cleared.
-
+                            once a wave has been cleared.
                         </p>
 
 
@@ -395,12 +352,10 @@
                             </span>
 
                             <p>
-
-                                Separating the wave into start, active and end
-                                states gave me one place to control spawning,
-                                transitions and wave progression instead of
-                                distributing that logic across individual enemies.
-
+                                Separating the wave into start, active and end states
+                                gave me one place to control spawning, transitions
+                                and progression instead of distributing the logic
+                                across individual enemies.
                             </p>
 
                         </div>
@@ -435,10 +390,6 @@
 
 
 
-                <!-- ========================================
-                     WAVE SYSTEM CODE
-                ========================================= -->
-
                 <div class="code-showcase">
 
 
@@ -448,13 +399,10 @@
                             Wave state flow
                         </h3>
 
-
                         <p>
-
                             The manager uses a small state system to handle
                             transitions between preparing, running and ending
                             a wave.
-
                         </p>
 
                     </div>
@@ -515,13 +463,9 @@ private void CurrentWaveStateChanged()
                             Scaling the wave size
                         </h3>
 
-
                         <p>
-
-                            The amount of enemies grows together with the current
-                            wave count, while designated boss waves use their own
-                            spawn behaviour.
-
+                            The amount of enemies grows with the current wave,
+                            while designated boss waves use separate spawning.
                         </p>
 
                     </div>
@@ -569,7 +513,7 @@ private void CurrentWaveStateChanged()
                             loop
                             playsinline
                             preload="auto"
-                            aria-label="Tanks of Chaos enemy movement behaviour"
+                            aria-label="Tanks of Chaos enemy behaviour"
                         >
 
                             <source
@@ -602,47 +546,38 @@ private void CurrentWaveStateChanged()
 
 
                         <h2>
-                            Multiple enemy movement patterns
+                            Different enemy combat patterns
                         </h2>
 
 
                         <p>
-
-                        Enemies use different movement modes to create variation
-                        between encounters. Some enemies continuously move toward
-                        the player, while others can prepare and perform a direct
-                        dash attack.
-
+                            Enemies use different movement modes to create variation
+                            between encounters. Some enemies continuously move toward
+                            the player, while others prepare and perform a direct
+                            dash attack.
                         </p>
 
 
                         <p>
-
                             Another movement type uses slower turning and forward
                             movement, producing a heavier enemy behaviour compared
                             with the standard chasing enemies.
-
                         </p>
 
 
                         <p>
-
                             In addition to mobile enemies, the game also includes
-                            stationary turrets. These remain in place and attack the
-                            player from range, creating a different type of threat that
-                            has to be approached differently from moving enemies.
-
+                            stationary turrets. These remain in place and attack
+                            the player from range, creating a different type of
+                            threat from moving enemies.
                         </p>
 
 
                         <p>
-
-                            The movement system keeps the mobile enemy behaviours behind
-                            a shared component, allowing enemy prefabs to use different
-                            movement styles through configuration, while stationary
-                            turrets provide an additional combat pattern without requiring
-                            movement at all.
-
+                            The movement system keeps the mobile enemy behaviours
+                            behind a shared component, while stationary turrets
+                            provide an additional combat pattern without requiring
+                            movement.
                         </p>
 
 
@@ -650,17 +585,15 @@ private void CurrentWaveStateChanged()
                         <div class="decision-box">
 
                             <span class="decision-title">
-                                Why multiple movement modes?
+                                Why different enemy behaviours?
                             </span>
 
                             <p>
-
-                                I wanted enemy variety without requiring a completely
-                                separate movement script for every enemy type.
-                                Switching behaviour through one movement component
-                                allowed several enemy styles to share the same base
-                                system.
-
+                                I wanted enemies to create different combat situations
+                                instead of all approaching the player in the same way.
+                                Mobile enemies use several movement behaviours, while
+                                stationary turrets add ranged pressure from fixed
+                                positions.
                             </p>
 
                         </div>
@@ -682,6 +615,10 @@ private void CurrentWaveStateChanged()
                             </span>
 
                             <span class="tag">
+                                Stationary Turrets
+                            </span>
+
+                            <span class="tag">
                                 Target Tracking
                             </span>
 
@@ -695,10 +632,6 @@ private void CurrentWaveStateChanged()
 
 
 
-                <!-- ========================================
-                     ENEMY MOVEMENT CODE
-                ========================================= -->
-
                 <div class="code-showcase">
 
 
@@ -708,12 +641,9 @@ private void CurrentWaveStateChanged()
                             Configurable movement behaviour
                         </h3>
 
-
                         <p>
-
-                            Each enemy can select a movement type that determines
-                            how it reacts to the player's position.
-
+                            Mobile enemy prefabs can select between multiple
+                            movement modes using one shared component.
                         </p>
 
                     </div>
@@ -739,7 +669,16 @@ private void HandleMovement()
             break;
 
         case MovementType.attackDash:
-            HandleDash();
+
+            if (isLoadingDash)
+            {
+                StartLoadingDash();
+            }
+            else if (isDashing)
+            {
+                Dash();
+            }
+
             break;
 
         case MovementType.MacMovement:
@@ -753,10 +692,6 @@ private void HandleMovement()
 
 
 
-                <!-- ========================================
-                     ENEMY POINTER
-                ========================================= -->
-
                 <div class="code-showcase">
 
 
@@ -766,14 +701,9 @@ private void HandleMovement()
                             Off-screen enemy indicators
                         </h3>
 
-
                         <p>
-
                             Enemies outside the camera view receive a screen-space
-                            indicator. The UI position is clamped to the edge of
-                            the screen so the player can still locate remaining
-                            enemies.
-
+                            indicator so the player can locate remaining enemies.
                         </p>
 
                     </div>
@@ -792,17 +722,19 @@ bool isOffScreen =
 
 if (isOffScreen)
 {
-    screenPosition.x = Mathf.Clamp(
-        screenPosition.x,
-        borderSize,
-        Screen.width - borderSize
-    );
+    screenPosition.x =
+        Mathf.Clamp(
+            screenPosition.x,
+            borderSize,
+            Screen.width - borderSize
+        );
 
-    screenPosition.y = Mathf.Clamp(
-        screenPosition.y,
-        borderSize,
-        Screen.height - borderSize
-    );
+    screenPosition.y =
+        Mathf.Clamp(
+            screenPosition.y,
+            borderSize,
+            Screen.height - borderSize
+        );
 
     transform.position =
         screenPosition;
@@ -820,7 +752,7 @@ if (isOffScreen)
 
         <!-- ========================================
              FEATURE 3
-             PLAYER MOVEMENT / COMBAT
+             VEHICLE COMBAT
         ========================================= -->
 
         <section class="section section-dark">
@@ -877,30 +809,24 @@ if (isOffScreen)
 
 
                         <p>
-
                             Vehicle movement and weapon aiming are handled
                             independently. The tank body accelerates and turns
-                            according to player movement input while the turret
-                            rotates separately toward the mouse position.
-
+                            according to movement input while the turret rotates
+                            separately toward the mouse position.
                         </p>
 
 
                         <p>
-
                             Acceleration, deceleration and maximum speed are
-                            configurable values and can change depending on the
-                            current vehicle upgrades.
-
+                            configurable and can change depending on the current
+                            vehicle upgrades.
                         </p>
 
 
                         <p>
-
                             Weapon behaviour also varies between vehicles.
                             Standard projectiles travel directly forward while
                             other weapons can use targeted projectile behaviour.
-
                         </p>
 
 
@@ -912,13 +838,9 @@ if (isOffScreen)
                             </span>
 
                             <p>
-
-                                Allowing the tank body and turret to rotate
-                                independently gives the player the ability to
-                                keep aiming at enemies while moving in another
-                                direction, which became a central part of the
-                                combat controls.
-
+                                Independent rotation allows the player to keep
+                                aiming at enemies while moving in another direction,
+                                which became a central part of the combat controls.
                             </p>
 
                         </div>
@@ -957,10 +879,6 @@ if (isOffScreen)
 
 
 
-                <!-- ========================================
-                     TURRET CODE
-                ========================================= -->
-
                 <div class="code-showcase">
 
 
@@ -970,13 +888,10 @@ if (isOffScreen)
                             Independent turret aiming
                         </h3>
 
-
                         <p>
-
                             The mouse position is converted into world space and
                             used to rotate the turret independently from the tank
                             body.
-
                         </p>
 
                     </div>
@@ -987,14 +902,14 @@ if (isOffScreen)
     Vector2 mousePosition =
         GetMousePostion();
 
-    Vector3 direction =
+    Vector3 turretDirection =
         (Vector3)mousePosition
         - turretParent.position;
 
     float desiredAngle =
         Mathf.Atan2(
-            direction.y,
-            direction.x
+            turretDirection.y,
+            turretDirection.x
         ) * Mathf.Rad2Deg;
 
     float rotationStep =
@@ -1019,10 +934,6 @@ if (isOffScreen)
 
 
 
-                <!-- ========================================
-                     PLAYER SPEED CODE
-                ========================================= -->
-
                 <div class="code-showcase">
 
 
@@ -1032,12 +943,9 @@ if (isOffScreen)
                             Acceleration and reversing
                         </h3>
 
-
                         <p>
-
                             Vehicle speed changes gradually instead of switching
                             instantly between full speed and stopping.
-
                         </p>
 
                     </div>
@@ -1051,9 +959,18 @@ if (isOffScreen)
         currentForwardDirection = 1f;
     }
 
-    currentSpeed +=
-        acceleration[acceleartionCount]
-        * Time.deltaTime;
+    if (drivingForward)
+    {
+        currentSpeed +=
+            acceleration[acceleartionCount]
+            * Time.deltaTime;
+    }
+    else
+    {
+        currentSpeed -=
+            deaceleration[deceleartionCount]
+            * Time.deltaTime;
+    }
 }
 else if (inputVector.y &lt; 0)
 {
@@ -1064,11 +981,12 @@ else if (inputVector.y &lt; 0)
     }
 }
 
-currentSpeed = Mathf.Clamp(
-    currentSpeed,
-    0f,
-    maxSpeed[speedCount]
-);</code></pre>
+currentSpeed =
+    Mathf.Clamp(
+        currentSpeed,
+        0f,
+        maxSpeed[speedCount]
+    );</code></pre>
 
 
                 </div>
@@ -1082,7 +1000,7 @@ currentSpeed = Mathf.Clamp(
 
         <!-- ========================================
              FEATURE 4
-             VEHICLES / SHOP
+             VEHICLE PROGRESSION
         ========================================= -->
 
         <section class="section">
@@ -1123,29 +1041,22 @@ currentSpeed = Mathf.Clamp(
 
 
                         <p>
-
                             Currency earned during combat can be used to unlock
                             additional vehicles and maps.
-
                         </p>
 
 
                         <p>
-
                             The available vehicles include multiple tank and
                             vehicle types, each represented by its own prefab and
                             configuration.
-
                         </p>
 
 
                         <p>
-
                             The shop system keeps the unlock logic separate from
-                            the individual vehicle behaviour. A vehicle reports
-                            its type to the shop, which then updates the
-                            corresponding unlock state.
-
+                            the individual vehicle behaviour and updates the
+                            corresponding unlock state when a purchase is made.
                         </p>
 
 
@@ -1157,12 +1068,10 @@ currentSpeed = Mathf.Clamp(
                             </span>
 
                             <p>
-
                                 Unlockable vehicles gave the combat loop a longer
-                                progression goal while also allowing me to experiment
-                                with different movement and weapon behaviours inside
+                                progression goal while allowing me to experiment
+                                with different movement and weapon behaviours in
                                 the same game.
-
                             </p>
 
                         </div>
@@ -1201,10 +1110,6 @@ currentSpeed = Mathf.Clamp(
 
 
 
-                <!-- ========================================
-                     SHOP CODE
-                ========================================= -->
-
                 <div class="code-showcase">
 
 
@@ -1214,12 +1119,9 @@ currentSpeed = Mathf.Clamp(
                             Vehicle unlock routing
                         </h3>
 
-
                         <p>
-
                             Each vehicle has an identifier that the shop uses
                             to update its corresponding unlock state.
-
                         </p>
 
                     </div>
@@ -1267,7 +1169,7 @@ currentSpeed = Mathf.Clamp(
 
 
         <!-- ========================================
-             WHAT I LEARNED
+             LEARNING
         ========================================= -->
 
         <section class="section section-dark">
@@ -1288,30 +1190,23 @@ currentSpeed = Mathf.Clamp(
 
 
                     <p>
-
                         Tanks of Chaos was an important step from small prototypes
                         toward completing and releasing a larger solo game.
-
                     </p>
 
 
                     <p>
-
-                        I implemented the full gameplay loop myself, including
-                        player controls, enemy behaviour, wave progression,
-                        multiple vehicles, upgrades, maps and the surrounding
-                        game systems required for a complete release.
-
+                        I implemented the complete gameplay loop, including player
+                        controls, enemy behaviour, wave progression, vehicles,
+                        upgrades, maps and the surrounding systems needed for a
+                        full release.
                     </p>
 
 
                     <p>
-
-                        Looking back at the project also made me much more aware
-                        of the importance of modular code structure and reusable
-                        systems. Those lessons influenced how I approached my
-                        later projects.
-
+                        Looking back at the project also made me more aware of the
+                        importance of modular code structure and reusable systems.
+                        Those lessons influenced how I approached later projects.
                     </p>
 
 
@@ -1322,10 +1217,6 @@ currentSpeed = Mathf.Clamp(
         </section>
 
 
-
-        <!-- ========================================
-             END LINKS
-        ========================================= -->
 
         <section class="project-end-section">
 
@@ -1338,7 +1229,6 @@ currentSpeed = Mathf.Clamp(
                         TANKS OF CHAOS
                     </p>
 
-
                     <h2>
                         View the released game
                     </h2>
@@ -1348,7 +1238,6 @@ currentSpeed = Mathf.Clamp(
 
 
                 <div class="project-end-links">
-
 
                     <a
                         class="button button-primary"
@@ -1367,7 +1256,6 @@ currentSpeed = Mathf.Clamp(
                         All Projects
                     </a>
 
-
                 </div>
 
 
@@ -1380,10 +1268,6 @@ currentSpeed = Mathf.Clamp(
 
 
 
-    <!-- ========================================
-         FOOTER
-    ========================================= -->
-
     <footer class="site-footer">
 
         <div class="container footer-content">
@@ -1391,7 +1275,6 @@ currentSpeed = Mathf.Clamp(
             <p>
                 © 2026 Simon Hartmann
             </p>
-
 
             <a href="#">
                 Back to top ↑
@@ -1402,10 +1285,6 @@ currentSpeed = Mathf.Clamp(
     </footer>
 
 
-
-    <!-- ========================================
-         FEATURE VIDEO HOVER
-    ========================================= -->
 
     <script>
 
@@ -1422,21 +1301,13 @@ currentSpeed = Mathf.Clamp(
                 container.querySelector(".video-hint");
 
 
-            /*
-             * Load the first frame so the video itself
-             * can be used as the preview image.
-             */
             video.addEventListener(
                 "loadedmetadata",
                 () => {
-
                     video.currentTime = 0.01;
-
                 }
             );
 
-
-            /* Desktop: play on hover */
 
             container.addEventListener(
                 "mouseenter",
@@ -1452,14 +1323,11 @@ currentSpeed = Mathf.Clamp(
             );
 
 
-            /* Desktop: reset on mouse leave */
-
             container.addEventListener(
                 "mouseleave",
                 () => {
 
                     video.pause();
-
                     video.currentTime = 0.01;
 
                     if (hint) {
