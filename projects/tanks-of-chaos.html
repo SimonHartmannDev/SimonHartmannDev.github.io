@@ -608,10 +608,10 @@ private void CurrentWaveStateChanged()
 
                         <p>
 
-                            Enemies use different movement modes to create variation
-                            between encounters. Some enemies continuously move toward
-                            the player, while others can prepare and perform a direct
-                            dash attack.
+                        Enemies use different movement modes to create variation
+                        between encounters. Some enemies continuously move toward
+                        the player, while others can prepare and perform a direct
+                        dash attack.
 
                         </p>
 
@@ -627,9 +627,21 @@ private void CurrentWaveStateChanged()
 
                         <p>
 
-                            The system keeps the individual behaviours behind a
-                            shared movement component, allowing enemy prefabs to use
-                            different movement styles through configuration.
+                            In addition to mobile enemies, the game also includes
+                            stationary turrets. These remain in place and attack the
+                            player from range, creating a different type of threat that
+                            has to be approached differently from moving enemies.
+
+                        </p>
+
+
+                        <p>
+
+                            The movement system keeps the mobile enemy behaviours behind
+                            a shared component, allowing enemy prefabs to use different
+                            movement styles through configuration, while stationary
+                            turrets provide an additional combat pattern without requiring
+                            movement at all.
 
                         </p>
 
