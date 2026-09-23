@@ -1925,10 +1925,15 @@ input {
     .project-status {
         align-self: flex-start;
     }
+}
+
+
+
+
+@media (max-width: 600px) {
 
     .hero-layout {
         grid-template-columns: 1fr;
-
         gap: 32px;
     }
 
