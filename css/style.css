@@ -1872,13 +1872,15 @@ input {
     }
 
         .hero-layout {
-        display: grid;
-        grid-template-columns:
-            minmax(0, 1fr)
-            190px;
+            display: grid;
 
-        align-items: center;
-        gap: 56px;
+            grid-template-columns:
+                minmax(0, 1fr)
+                250px;
+
+            align-items: center;
+            gap: 56px;
+        }
     }
 
     .hero-content {
@@ -1897,8 +1899,8 @@ input {
     }
 
     .hero-image {
-        width: 190px;
-        height: 240px;
+        width: 250px;
+        height: 320px;
 
         justify-self: end;
 
