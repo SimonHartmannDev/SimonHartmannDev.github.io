@@ -1929,26 +1929,6 @@ input {
 
 
 
-
-@media (max-width: 600px) {
-
-    .hero-layout {
-        grid-template-columns: 1fr;
-        gap: 32px;
-    }
-
-
-    .hero-image {
-        width: 150px;
-        height: 190px;
-
-        justify-self: start;
-    }
-
-}
-
-
-
 @media (max-width: 650px) {
 
 
