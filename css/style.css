@@ -1871,6 +1871,31 @@ input {
         align-self: flex-start;
     }
 
+    .hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+    align-items: center;
+    gap: 64px;
+    }
+
+    .hero-content {
+        max-width: 720px;
+    }
+
+    .hero-image {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .hero-image img {
+        width: 100%;
+        max-width: 380px;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        border-radius: var(--radius-large);
+        border: 1px solid var(--border);
+    }
+
 
 }
 
