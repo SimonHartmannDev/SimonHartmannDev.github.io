@@ -373,7 +373,7 @@ input {
 
     grid-template-columns:
         minmax(0, 1fr)
-        250px;
+        330px;
 
     align-items: center;
 
@@ -402,8 +402,8 @@ input {
 
 
 .hero-image {
-    width: 250px;
-    height: 320px;
+    width: 330px;
+    height: 425px;
 
     justify-self: end;
 
