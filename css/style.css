@@ -1873,7 +1873,7 @@ input {
 
     .hero-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+    grid-template-columns: minmax(0, 1fr) 260px;
     align-items: center;
     gap: 64px;
     }
@@ -1885,13 +1885,16 @@ input {
     .hero-image {
         display: flex;
         justify-content: flex-end;
+        align-items: center;
     }
 
     .hero-image img {
-        width: 100%;
-        max-width: 380px;
-        aspect-ratio: 4 / 5;
+        width: 240px;
+        height: 300px;
+
         object-fit: cover;
+        object-position: center;
+
         border-radius: var(--radius-large);
         border: 1px solid var(--border);
     }
