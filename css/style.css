@@ -289,20 +289,33 @@ input {
 
     align-items: center;
 
-    padding: 120px 0;
+    padding: 110px 0;
+
+}
+
+
+.hero-layout {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        180px;
+
+    align-items: center;
+
+    gap: 52px;
 
 }
 
 
 .hero-content {
 
-    max-width: 900px;
+    max-width: 760px;
 
-    margin-left: auto;
+    margin: 0;
 
-    margin-right: auto;
-
-    text-align: center;
+    text-align: left;
 
 }
 
@@ -312,7 +325,7 @@ input {
     margin: 0;
 
     font-size:
-        clamp(4rem, 10vw, 7.5rem);
+        clamp(4rem, 8vw, 7rem);
 
     line-height: 0.95;
 
@@ -340,11 +353,11 @@ input {
 
 .hero-description {
 
-    max-width: 760px;
+    max-width: 700px;
 
     margin:
         0
-        auto
+        0
         14px;
 
     color: var(--text-secondary);
@@ -360,11 +373,53 @@ input {
 
     display: flex;
 
-    justify-content: center;
+    justify-content: flex-start;
 
     flex-wrap: wrap;
 
     gap: 14px;
+
+}
+
+
+.hero-image {
+
+    width: 180px;
+    height: 225px;
+
+    justify-self: end;
+
+    overflow: hidden;
+
+    background: var(--surface);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        var(--radius-large);
+
+    box-shadow:
+        0
+        14px
+        40px
+        rgba(0, 0, 0, 0.22);
+
+}
+
+
+.hero-image img {
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    /* Crop the original nature photo into a portrait */
+    object-position: 50% 44%;
 
 }
 
@@ -1700,6 +1755,26 @@ input {
 
 @media (max-width: 900px) {
 
+    .hero-layout {
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            165px;
+
+        gap: 36px;
+
+    }
+
+
+    .hero-image {
+
+        width: 165px;
+        height: 206px;
+
+    }
+
+
+
 
     .section {
         padding: 90px 0;
@@ -1872,33 +1947,31 @@ input {
     }
 
     .hero-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 260px;
-    align-items: center;
-    gap: 64px;
+
+        grid-template-columns: 1fr;
+
+        gap: 34px;
+
     }
+
 
     .hero-content {
+
         max-width: 720px;
+
+        text-align: left;
+
     }
+
 
     .hero-image {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
+
+        width: 150px;
+        height: 188px;
+
+        justify-self: start;
+
     }
-
-    .hero-image img {
-        width: 240px;
-        height: 300px;
-
-        object-fit: cover;
-        object-position: center;
-
-        border-radius: var(--radius-large);
-        border: 1px solid var(--border);
-    }
-
 
 }
 
